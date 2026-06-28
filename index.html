@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>To My Dearest Baccha ❤️</title>
+<meta charset="UTF-8">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <!-- GSAP -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<title>To My Dearest Baccha ❤️</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
+rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+
+<link rel="stylesheet"
+href="style.css">
+
 </head>
 
 <body>
+
+<!-- Animated Background -->
 
 <div id="background"></div>
 
@@ -23,49 +37,128 @@
 
 <div id="petals"></div>
 
+<!-- Loading Screen -->
+
 <section id="loadingScreen">
 
-    <h2>Creating Something Special...</h2>
+<h2>
 
-    <div class="loader">
-        <div class="progress"></div>
-    </div>
+Creating Something Special...
 
-    <p id="loadingText">
-        Collecting our memories...
-    </p>
+</h2>
+
+<div class="loader">
+
+<div class="progress"></div>
+
+</div>
+
+<p id="loadingText">
+
+Collecting our memories...
+
+</p>
 
 </section>
+
+<!-- Home -->
 
 <section id="home">
 
-    <div class="envelope">
+<div class="hero">
 
-        <div class="seal">❤</div>
+<h1>
 
-    </div>
+To My Dearest Baccha ❤️
 
-    <h1>To My Dearest Baccha ❤️</h1>
+</h1>
 
-    <p>
+<p>
 
-        Before today begins...
+Before today begins...
 
-        I have something only you can open.
+I have something only you can open.
 
-    </p>
+</p>
 
-    <button id="openLetter">
+<!-- Envelope -->
 
-        Open With Love
+<div class="envelope">
 
-    </button>
+<div class="envelope-back"></div>
+
+<div class="letter">
+
+<div class="paper">
+
+<h2>
+
+My Dearest Baccha ❤️
+
+</h2>
+
+<p>
+
+Every page of this website
+was created with love.
+
+This is only the beginning
+of our little journey...
+
+</p>
+
+</div>
+
+</div>
+
+<div class="flap"></div>
+
+<div class="front"></div>
+
+<div class="seal">
+
+❤
+
+</div>
+
+</div>
+
+<button id="openLetter">
+
+Open With Love 💌
+
+</button>
+
+</div>
+    
+<!-- Background Music -->
+
+<audio id="bgMusic" loop preload="auto">
+
+    <source src="assets/music/song.mp3" type="audio/mpeg">
+
+    Your browser does not support the audio element.
+
+</audio>
+
+<!-- Music Button -->
+
+<button id="musicToggle">
+
+    🎵
+
+</button>
 
 </section>
 
+<!-- JavaScript Files -->
+
 <script src="data.js"></script>
+
 <script src="animations.js"></script>
+
 <script src="script.js"></script>
 
 </body>
+
 </html>
