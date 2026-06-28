@@ -1,41 +1,55 @@
 /* ==========================================
    Project Baccha ❤️
    File : style.css
-   Version : 1.0
+   Version : 1.1
 ========================================== */
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:'Poppins',sans-serif;
-    width:100%;
-    height:100vh;
-    overflow:hidden;
-    background:linear-gradient(-45deg,#A8D8FF,#FFD6E7,#FFF5F7,#BFE9FF);
-    background-size:400% 400%;
-    animation:gradientBG 15s ease infinite;
-    color:#1f3552;
+
+font-family:'Poppins',sans-serif;
+
+height:100vh;
+
+overflow:hidden;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:linear-gradient(
+-45deg,
+#A8D8FF,
+#FFD6E7,
+#FFF4F8,
+#BDE7FF);
+
+background-size:400% 400%;
+
+animation:bgMove 15s ease infinite;
+
 }
 
-/* =========================
-   Animated Background
-========================= */
+/* Background */
 
-@keyframes gradientBG{
+@keyframes bgMove{
 
-    0%{background-position:0% 50%;}
+0%{background-position:0% 50%;}
 
-    50%{background-position:100% 50%;}
+50%{background-position:100% 50%;}
 
-    100%{background-position:0% 50%;}
+100%{background-position:0% 50%;}
 
 }
 
@@ -43,89 +57,94 @@ body{
 #sparkles,
 #petals{
 
-    position:fixed;
+position:fixed;
 
-    top:0;
-    left:0;
+left:0;
 
-    width:100%;
-    height:100%;
+top:0;
 
-    pointer-events:none;
+width:100%;
+
+height:100%;
+
+pointer-events:none;
 
 }
 
-/* =========================
-   Loading Screen
-========================= */
+/* Loading */
 
 #loadingScreen{
 
-    position:absolute;
+position:fixed;
 
-    width:100%;
-    height:100%;
+left:0;
 
-    display:flex;
+top:0;
 
-    justify-content:center;
-    align-items:center;
+width:100%;
 
-    flex-direction:column;
+height:100%;
 
-    backdrop-filter:blur(10px);
+display:flex;
 
-    z-index:100;
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+backdrop-filter:blur(8px);
+
+z-index:1000;
 
 }
 
 #loadingScreen h2{
 
-    font-family:'Caveat',cursive;
+font-family:'Caveat',cursive;
 
-    font-size:38px;
+font-size:40px;
 
-    color:#23456d;
+color:#1d4d73;
 
-    margin-bottom:25px;
+margin-bottom:25px;
 
 }
 
 .loader{
 
-    width:85%;
+width:85%;
 
-    max-width:360px;
+max-width:360px;
 
-    height:14px;
+height:14px;
 
-    background:rgba(255,255,255,.45);
+background:rgba(255,255,255,.45);
 
-    border-radius:50px;
+border-radius:30px;
 
-    overflow:hidden;
+overflow:hidden;
 
 }
 
 .progress{
 
-    width:0%;
+height:100%;
 
-    height:100%;
+width:0%;
 
-    border-radius:50px;
+border-radius:30px;
 
-    background:linear-gradient(
-    90deg,
-    #ff5ea8,
-    #ff8ec7,
-    #ffd166,
-    #ff8ec7,
-    #ff5ea8);
+background:linear-gradient(
+90deg,
+#ff6aa9,
+#ff9ac6,
+#ffd166,
+#ff6aa9);
 
-    background-size:300%;
+background-size:300%;
 
-    animation:shine 2s linear infinite;
+animation:shine 2s linear infinite;
 
 }
 
@@ -147,311 +166,328 @@ background-position:300%;
 
 #loadingText{
 
-    margin-top:20px;
+margin-top:20px;
 
-    color:#23456d;
+font-size:17px;
 
-    text-align:center;
+color:#31516f;
 
-    font-size:17px;
-
-    line-height:1.6;
+text-align:center;
 
 }
 
-/* =========================
-   Home
-========================= */
+/* Home */
 
 #home{
 
-    position:absolute;
+position:absolute;
 
-    width:100%;
-    height:100%;
+width:100%;
 
-    display:none;
+height:100%;
 
-    justify-content:center;
+display:none;
 
-    align-items:center;
+justify-content:center;
 
-    flex-direction:column;
+align-items:center;
 
-    padding:25px;
+opacity:0;
 
-    opacity:0;
+}
+
+.hero{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:18px;
+
+padding:25px;
 
 }
 
 h1{
 
-    margin-top:70px;
+font-family:'Caveat',cursive;
 
-    font-family:'Caveat',cursive;
+font-size:55px;
 
-    font-size:52px;
+color:#214a73;
 
-    color:#1E3E62;
-
-    text-align:center;
+text-align:center;
 
 }
 
-#home p{
+.hero p{
 
-    margin-top:15px;
+max-width:330px;
 
-    max-width:330px;
+text-align:center;
 
-    text-align:center;
+line-height:1.7;
 
-    color:#33506d;
+font-size:18px;
 
-    font-size:18px;
-
-    line-height:1.7;
+color:#35516c;
 
 }
 
 /* =========================
-   Envelope
+      Premium Envelope
 ========================= */
 
 .envelope{
 
-    width:190px;
+position:relative;
 
-    height:125px;
+width:240px;
 
-    background:white;
+height:165px;
 
-    border-radius:12px;
+margin-top:20px;
 
-    position:relative;
+animation:float 4s ease-in-out infinite;
 
-    cursor:pointer;
-
-    box-shadow:0 20px 40px rgba(0,0,0,.18);
+filter:drop-shadow(0 20px 35px rgba(0,0,0,.18));
 
 }
 
-.envelope::before{
+/* Back */
 
-    content:"";
+.envelope-back{
 
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:#F9C7D8;
+
+border-radius:10px;
+
+}
+
+/* Letter */
+
+.letter{
+
+position:absolute;
+
+left:12px;
+
+top:12px;
+
+width:216px;
+
+height:145px;
+
+background:#FFFCF8;
+
+border-radius:8px;
+
+overflow:hidden;
+
+z-index:2;
+
+display:flex;
+
+justify-content:center;
+
+align-items:flex-start;
+
+padding:18px;
+
+}
+
+/* Paper */
+
+.paper{
+    width:100%;
+    height:100%;
+    overflow:auto;
+}
+
+.paper h2{
+    font-family:'Caveat',cursive;
+    font-size:30px;
+    color:#B23A6F;
+    text-align:center;
+    margin-bottom:12px;
+}
+
+.paper p{
+    font-size:15px;
+    color:#4F4F4F;
+    line-height:1.7;
+    text-align:center;
+}
+
+/* Flap */
+
+.flap{
     position:absolute;
-
-    width:134px;
-
-    height:134px;
-
-    background:white;
-
-    left:28px;
-
-    top:-67px;
-
-    transform:rotate(45deg);
-
-    border-radius:8px;
-
+    top:0;
+    left:0;
+    width:100%;
+    height:90px;
+    background:#F6B7CC;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    transform-origin:top;
+    z-index:5;
 }
+
+/* Front Pocket */
+
+.front{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:95px;
+    background:#F3AFC5;
+    clip-path:polygon(0 100%,50% 25%,100% 100%);
+    z-index:6;
+}
+
+/* Wax Seal */
 
 .seal{
-
     position:absolute;
-
-    width:48px;
-
-    height:48px;
-
     left:50%;
-
-    top:42px;
-
+    top:62px;
     transform:translateX(-50%);
-
+    width:50px;
+    height:50px;
     border-radius:50%;
-
-    background:#ff5ea8;
-
+    background:#B23A6F;
+    color:#fff;
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
-    color:white;
-
     font-size:22px;
-
     font-weight:bold;
-
-    z-index:5;
-
-    box-shadow:0 8px 18px rgba(255,94,168,.4);
-
+    z-index:10;
+    box-shadow:0 6px 18px rgba(178,58,111,.35);
 }
 
-/* =========================
-   Button
-========================= */
+/* Button */
 
 button{
-
     margin-top:35px;
-
     padding:15px 35px;
-
     border:none;
-
-    border-radius:50px;
-
-    cursor:pointer;
-
-    background:rgba(255,255,255,.25);
-
-    backdrop-filter:blur(12px);
-
-    color:#23456d;
-
-    font-size:18px;
-
+    border-radius:40px;
+    background:rgba(255,255,255,.35);
+    backdrop-filter:blur(10px);
+    color:#214a73;
+    font-size:17px;
     font-weight:600;
-
+    cursor:pointer;
     transition:.3s;
-
 }
 
 button:hover{
-
     transform:translateY(-4px);
-
-    background:white;
-
+    background:#fff;
 }
 
-/* =========================
-   Sparkles
-========================= */
+/* Music Button */
+
+#musicToggle{
+    position:fixed;
+    top:20px;
+    right:20px;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    padding:0;
+    z-index:50;
+}
+
+/* Sparkles */
 
 .sparkle{
-
     position:absolute;
-
     width:4px;
-
     height:4px;
-
-    background:white;
-
+    background:#fff;
     border-radius:50%;
-
-    box-shadow:0 0 10px white;
-
-    animation:sparkle 4s infinite ease-in-out;
-
+    box-shadow:0 0 10px #fff;
+    animation:sparkle 4s infinite;
 }
 
 @keyframes sparkle{
-
-0%{
-
-opacity:0;
-
-transform:scale(.5);
-
+    0%,100%{
+        opacity:0;
+        transform:scale(.5);
+    }
+    50%{
+        opacity:1;
+        transform:scale(1.8);
+    }
 }
 
-50%{
-
-opacity:1;
-
-transform:scale(1.5);
-
-}
-
-100%{
-
-opacity:0;
-
-transform:scale(.5);
-
-}
-
-}
-
-/* =========================
-   Petals
-========================= */
+/* Petals */
 
 .petal{
-
     position:absolute;
-
     width:16px;
-
     height:16px;
-
-    background:#ff9ac6;
-
+    background:#FF94BF;
     border-radius:60% 0 60% 0;
-
-    opacity:.8;
-
     animation:fall linear forwards;
-
 }
 
 @keyframes fall{
-
-0%{
-
-transform:translateY(-30px) rotate(0deg);
-
+    from{
+        transform:translateY(-30px) rotate(0deg);
+    }
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
 }
 
-100%{
+/* Floating */
 
-transform:translateY(110vh) rotate(720deg);
-
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
 }
 
-}
-
-/* =========================
-   Mobile
-========================= */
+/* Mobile */
 
 @media(max-width:480px){
 
-h1{
+    h1{
+        font-size:42px;
+    }
 
-font-size:42px;
+    .envelope{
+        width:210px;
+        height:145px;
+    }
 
-}
+    .letter{
+        width:188px;
+        height:126px;
+    }
 
-#loadingScreen h2{
+    .hero p{
+        font-size:16px;
+        padding:0 10px;
+    }
 
-font-size:32px;
-
-}
-
-.envelope{
-
-width:170px;
-
-height:112px;
-
-}
-
-button{
-
-width:90%;
-
-max-width:280px;
-
-}
-
+    button{
+        width:90%;
+        max-width:280px;
+    }
    }
