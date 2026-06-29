@@ -1,15 +1,28 @@
 // =====================================
 // Project Baccha ❤️
-// script.js V1.1
+// script.js V1.3
 // =====================================
+
+// ------------------------
+// Elements
+// ------------------------
 
 const loadingScreen = document.getElementById("loadingScreen");
 const home = document.getElementById("home");
+const welcomeScreen = document.getElementById("welcomeScreen");
+
 const progress = document.querySelector(".progress");
 const loadingText = document.getElementById("loadingText");
 
 const music = document.getElementById("bgMusic");
 const musicToggle = document.getElementById("musicToggle");
+
+const openButton = document.getElementById("openLetter");
+const beginJourney = document.getElementById("beginJourney");
+
+// ------------------------
+// Loading Messages
+// ------------------------
 
 const messages = [
     "💌 Collecting our memories...",
@@ -23,7 +36,7 @@ let percent = 0;
 let messageIndex = 0;
 
 // ------------------------
-// Loading Animation
+// Loading Screen
 // ------------------------
 
 const loadingInterval = setInterval(() => {
@@ -33,8 +46,11 @@ const loadingInterval = setInterval(() => {
     progress.style.width = percent + "%";
 
     if (percent % 20 === 0 && messageIndex < messages.length - 1) {
+
         messageIndex++;
+
         loadingText.innerHTML = messages[messageIndex];
+
     }
 
     if (percent >= 100) {
@@ -42,49 +58,56 @@ const loadingInterval = setInterval(() => {
         clearInterval(loadingInterval);
 
         gsap.to(loadingScreen, {
-            opacity: 0,
-            duration: 1,
-            onComplete: () => {
 
-                loadingScreen.style.display = "none";
+            opacity:0,
 
-                home.style.display = "flex";
+            duration:1,
 
-                gsap.to(home, {
-                    opacity: 1,
-                    duration: 1
+            onComplete:()=>{
+
+                loadingScreen.style.display="none";
+
+                home.style.display="flex";
+
+                gsap.to(home,{
+
+                    opacity:1,
+
+                    duration:1
+
                 });
 
             }
+
         });
 
     }
 
-}, 35);
+},35);
 
 // ------------------------
 // Music
 // ------------------------
 
-let playing = false;
+let playing=false;
 
-musicToggle.addEventListener("click", () => {
+musicToggle.addEventListener("click",()=>{
 
-    if (!playing) {
+    if(!playing){
 
         music.play();
 
-        musicToggle.innerHTML = "🔊";
+        musicToggle.innerHTML="🔊";
 
-        playing = true;
+        playing=true;
 
-    } else {
+    }else{
 
         music.pause();
 
-        musicToggle.innerHTML = "🎵";
+        musicToggle.innerHTML="🎵";
 
-        playing = false;
+        playing=false;
 
     }
 
@@ -94,78 +117,128 @@ musicToggle.addEventListener("click", () => {
 // Sparkles
 // ------------------------
 
-const sparkleContainer = document.getElementById("sparkles");
+const sparkleContainer=document.getElementById("sparkles");
 
-function createSparkle() {
+function createSparkle(){
 
-    const sparkle = document.createElement("div");
+    const sparkle=document.createElement("div");
 
-    sparkle.className = "sparkle";
+    sparkle.className="sparkle";
 
-    sparkle.style.left = Math.random() * window.innerWidth + "px";
-    sparkle.style.top = Math.random() * window.innerHeight + "px";
+    sparkle.style.left=Math.random()*window.innerWidth+"px";
+    sparkle.style.top=Math.random()*window.innerHeight+"px";
 
-    sparkle.style.animationDuration =
-        (2 + Math.random() * 3) + "s";
+    sparkle.style.animationDuration=
+    (2+Math.random()*3)+"s";
 
     sparkleContainer.appendChild(sparkle);
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
         sparkle.remove();
 
-    }, 5000);
+    },5000);
 
 }
 
-setInterval(createSparkle, 300);
+setInterval(createSparkle,300);
 
 // ------------------------
 // Petals
 // ------------------------
 
-const petalContainer = document.getElementById("petals");
+const petalContainer=document.getElementById("petals");
 
-function createPetal() {
+function createPetal(){
 
-    const petal = document.createElement("div");
+    const petal=document.createElement("div");
 
-    petal.className = "petal";
+    petal.className="petal";
 
-    petal.style.left = Math.random() * window.innerWidth + "px";
+    petal.style.left=Math.random()*window.innerWidth+"px";
 
-    petal.style.animationDuration =
-        (5 + Math.random() * 5) + "s";
+    petal.style.animationDuration=
+    (5+Math.random()*5)+"s";
 
-    petal.style.opacity =
-        0.5 + Math.random() * 0.5;
+    petal.style.opacity=
+    0.5+Math.random()*0.5;
 
     petalContainer.appendChild(petal);
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
         petal.remove();
 
-    }, 10000);
+    },10000);
 
 }
 
-setInterval(createPetal, 450);
+setInterval(createPetal,450);
 
 // ------------------------
-// Floating Background
+// Read My Letter
 // ------------------------
 
-gsap.to("#background", {
+openButton.addEventListener("click",()=>{
 
-    backgroundPosition: "200% 200%",
+    if(openButton.innerHTML==="Read My Letter ❤️"){
 
-    duration: 30,
+        setTimeout(()=>{
 
-    repeat: -1,
+            gsap.to(home,{
 
-    yoyo: true,
+                opacity:0,
 
-    ease: "none"
+                duration:1,
+
+                onComplete:()=>{
+
+                    home.style.display="none";
+
+                    welcomeScreen.style.display="flex";
+
+                    gsap.to(welcomeScreen,{
+
+                        opacity:1,
+
+                        duration:1
+
+                    });
+
+                }
+
+            });
+
+        },300);
+
+    }
+
+});
+
+// ------------------------
+// Begin Journey
+// ------------------------
+
+beginJourney.addEventListener("click",()=>{
+
+    alert("✨ Memory Gallery is coming in V1.4 ❤️");
+
+});
+
+// ------------------------
+// Background Animation
+// ------------------------
+
+gsap.to("#background",{
+
+    backgroundPosition:"200% 200%",
+
+    duration:30,
+
+    repeat:-1,
+
+    yoyo:true,
+
+    ease:"none"
 
 });
