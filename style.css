@@ -1,170 +1,10 @@
 /* ==========================================
-   Project Baccha ❤️
-   File : style.css
-   Version : 1.1
+      Welcome Screen V1.3
 ========================================== */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    width:100%;
-    height:100vh;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:'Poppins',sans-serif;
-
-    background:linear-gradient(
-        -45deg,
-        #A8D8FF,
-        #FFD8E8,
-        #FFF6F8,
-        #C8ECFF
-    );
-
-    background-size:400% 400%;
-    animation:bgMove 15s ease infinite;
-}
-
-/* Animated Background */
-
-@keyframes bgMove{
-
-    0%{background-position:0% 50%;}
-
-    50%{background-position:100% 50%;}
-
-    100%{background-position:0% 50%;}
-
-}
-
-#background,
-#sparkles,
-#petals{
+#welcomeScreen{
 
     position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-}
-
-/* ==========================
-   Loading Screen
-========================== */
-
-#loadingScreen{
-
-    position:fixed;
-
-    inset:0;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    backdrop-filter:blur(10px);
-
-    z-index:999;
-
-}
-
-#loadingScreen h2{
-
-    font-family:'Caveat',cursive;
-
-    font-size:42px;
-
-    color:#23486d;
-
-    margin-bottom:25px;
-
-}
-
-.loader{
-
-    width:85%;
-
-    max-width:360px;
-
-    height:14px;
-
-    background:rgba(255,255,255,.45);
-
-    border-radius:50px;
-
-    overflow:hidden;
-
-}
-
-.progress{
-
-    width:0%;
-
-    height:100%;
-
-    border-radius:50px;
-
-    background:linear-gradient(
-        90deg,
-        #ff5ea8,
-        #ff8fc8,
-        #ffd166,
-        #ff8fc8,
-        #ff5ea8
-    );
-
-    background-size:300%;
-
-    animation:shine 2s linear infinite;
-
-}
-
-@keyframes shine{
-
-    from{
-        background-position:0%;
-    }
-
-    to{
-        background-position:300%;
-    }
-
-}
-
-#loadingText{
-
-    margin-top:20px;
-
-    color:#2F4C67;
-
-    font-size:17px;
-
-    text-align:center;
-
-}
-
-/* ==========================
-      Home
-========================== */
-
-#home{
-
-    position:absolute;
 
     inset:0;
 
@@ -174,356 +14,194 @@ body{
 
     align-items:center;
 
+    padding:24px;
+
+    background:rgba(255,248,252,.82);
+
+    backdrop-filter:blur(18px);
+
     opacity:0;
 
-}
-
-.hero{
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:18px;
+    z-index:1000;
 
 }
 
-h1{
-
-    font-family:'Caveat',cursive;
-
-    font-size:56px;
-
-    color:#214A74;
-
-    text-align:center;
-
-}
-
-.subtitle{
-
-    max-width:340px;
-
-    text-align:center;
-
-    color:#3E5973;
-
-    line-height:1.8;
-
-}
-
-/* ==========================
-      Premium Envelope
-========================== */
-
-.envelope{
-
-    position:relative;
-
-    width:260px;
-
-    height:180px;
-
-    margin-top:20px;
-
-    animation:float 4s ease-in-out infinite;
-
-    filter:drop-shadow(0 20px 30px rgba(0,0,0,.18));
-
-}
-
-.envelope-back{
-
-    position:absolute;
-
-    inset:0;
-
-    background:#F7C7D7;
-
-    border-radius:14px;
-
-}
-
-/* Letter */
-
-.letter{
-
-    position:absolute;
-
-    left:10px;
-    right:10px;
-    top:8px;
-
-    height:195px;
-
-    background:linear-gradient(
-        to bottom,
-        #fffefb,
-        #fff8ef
-    );
-
-    border-radius:12px;
-
-    z-index:8;
-
-    overflow:hidden;
-
-    transform:translateY(28px);
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.12);
-
-}
-
-/* ==========================
-      Letter Paper
-========================== */
-
-.paper{
+.welcomeCard{
 
     width:100%;
-    height:100%;
 
-    padding:20px 22px;
+    max-width:460px;
 
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-start;
-    align-items:center;
+    padding:42px 30px;
 
-    background:
-    repeating-linear-gradient(
-        white,
-        white 28px,
-        #f6f6f6 29px
-    );
+    border-radius:28px;
 
-}
-
-.paper h2{
-    font-family:'Caveat',cursive;
-    font-size:30px;
-    color:#C2467A;
     text-align:center;
-    margin-bottom:12px;
+
+    background:rgba(255,255,255,.65);
+
+    border:1px solid rgba(255,255,255,.55);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.12);
+
 }
 
-.paper p{
+.welcomeTitle{
 
-    font-size:15px;
+    font-family:'Caveat',cursive;
+
+    font-size:52px;
+
+    color:#C24E7C;
+
+    margin-bottom:24px;
+
+}
+
+.welcomeText{
+
+    font-size:17px;
 
     line-height:2;
 
-    color:#555;
+    color:#55657A;
 
-    text-align:center;
-
-    margin-top:8px;
+    margin-bottom:34px;
 
 }
 
-/* ==========================
-      Envelope Flap
-========================== */
+/* ==========================================
+      Begin Journey Button
+========================================== */
 
-.flap{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:95px;
-    background:linear-gradient(#FFD7E6,#F8BFD4);
-    clip-path:polygon(0 0,100% 0,50% 100%);
-    transform-origin:top center;
-    z-index:5;
-    transition:transform .8s ease;
-}
-
-/* ==========================
-      Front Pocket
-========================== */
-
-.front{
-
-    position:absolute;
-
-    bottom:0;
-
-    left:0;
+#beginJourney{
 
     width:100%;
 
-    height:88px;
+    max-width:280px;
+
+    margin-top:10px;
+
+    padding:16px 24px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#ffffff;
 
     background:linear-gradient(
-        #F8C8D9,
-        #F4AFC7
+        135deg,
+        #FF7EB3,
+        #FF5C8D
     );
 
-    clip-path:polygon(
-        0 100%,
-        50% 18%,
-        100% 100%
-    );
+    box-shadow:
+        0 12px 30px rgba(255,92,141,.35);
 
-    z-index:4;
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
 
 }
 
-/* ==========================
-      Wax Seal
-========================== */
+#beginJourney:hover{
 
-.seal{
-    position:absolute;
-    left:50%;
-    top:64px;
-    transform:translateX(-50%);
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    background:#B23668;
-    color:#fff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:22px;
-    font-weight:bold;
-    z-index:10;
-    box-shadow:0 8px 18px rgba(178,54,104,.35);
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 18px 40px rgba(255,92,141,.45);
+
 }
 
-/* ==========================
-      Buttons
-========================== */
+#beginJourney:active{
 
-button{
-    margin-top:28px;
-    padding:15px 34px;
-    border:none;
-    border-radius:40px;
-    background:rgba(255,255,255,.35);
-    backdrop-filter:blur(10px);
-    color:#214A74;
-    font-size:17px;
-    font-weight:600;
-    cursor:pointer;
-    transition:.3s;
+    transform:
+        scale(.96);
+
 }
 
-button:hover{
-    transform:translateY(-3px);
-    background:#fff;
-}
+/* ==========================================
+      Welcome Animation
+========================================== */
 
-#musicToggle{
-    position:fixed;
-    top:18px;
-    right:18px;
-    width:52px;
-    height:52px;
-    border-radius:50%;
-    padding:0;
-    margin:0;
-    z-index:50;
-}
+@keyframes welcomeFade{
 
-/* ==========================
-      Sparkles
-========================== */
-
-.sparkle{
-    position:absolute;
-    width:4px;
-    height:4px;
-    border-radius:50%;
-    background:#fff;
-    box-shadow:0 0 12px #fff;
-    animation:sparkle 4s infinite;
-}
-
-@keyframes sparkle{
-    0%,100%{
-        opacity:0;
-        transform:scale(.4);
-    }
-    50%{
-        opacity:1;
-        transform:scale(1.8);
-    }
-}
-
-/* ==========================
-      Petals
-========================== */
-
-.petal{
-    position:absolute;
-    width:16px;
-    height:16px;
-    background:#FF8FBF;
-    border-radius:60% 0 60% 0;
-    animation:fall linear forwards;
-}
-
-@keyframes fall{
     from{
-        transform:translateY(-40px) rotate(0deg);
+
+        opacity:0;
+
+        transform:
+        translateY(35px)
+        scale(.95);
+
     }
+
     to{
-        transform:translateY(110vh) rotate(720deg);
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
     }
+
 }
 
-/* ==========================
-      Floating
-========================== */
+.welcomeCard{
 
-@keyframes float{
-    0%,100%{
-        transform:translateY(0px);
-    }
-    50%{
-        transform:translateY(-12px);
-    }
+    animation:
+    welcomeFade
+    .9s
+    ease;
+
 }
 
-/* ==========================
+/* ==========================================
       Mobile
-========================== */
+========================================== */
 
 @media (max-width:480px){
 
-    h1{
+    .welcomeCard{
+
+        padding:34px 22px;
+
+        border-radius:22px;
+
+    }
+
+    .welcomeTitle{
+
         font-size:42px;
+
     }
 
-    .subtitle{
+    .welcomeText{
+
+        font-size:15px;
+
+        line-height:1.9;
+
+    }
+
+    #beginJourney{
+
         font-size:16px;
-        padding:0 16px;
+
+        padding:15px;
+
     }
 
-    .envelope{
-        width:220px;
-        height:155px;
-    }
-
-    .letter{
-        height:132px;
-    }
-
-    .paper h2{
-        font-size:26px;
-    }
-
-    .paper p{
-        font-size:13px;
-    }
-
-    button{
-        width:90%;
-        max-width:280px;
-    }
-                    }
+}
