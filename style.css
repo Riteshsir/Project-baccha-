@@ -5,51 +5,45 @@
 ========================================== */
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Poppins',sans-serif;
 
-font-family:'Poppins',sans-serif;
+    background:linear-gradient(
+        -45deg,
+        #A8D8FF,
+        #FFD8E8,
+        #FFF6F8,
+        #C8ECFF
+    );
 
-height:100vh;
-
-overflow:hidden;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-background:linear-gradient(
--45deg,
-#A8D8FF,
-#FFD6E7,
-#FFF4F8,
-#BDE7FF);
-
-background-size:400% 400%;
-
-animation:bgMove 15s ease infinite;
-
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
 }
 
-/* Background */
+/* Animated Background */
 
 @keyframes bgMove{
 
-0%{background-position:0% 50%;}
+    0%{background-position:0% 50%;}
 
-50%{background-position:100% 50%;}
+    50%{background-position:100% 50%;}
 
-100%{background-position:0% 50%;}
+    100%{background-position:0% 50%;}
 
 }
 
@@ -57,218 +51,198 @@ animation:bgMove 15s ease infinite;
 #sparkles,
 #petals{
 
-position:fixed;
+    position:fixed;
 
-left:0;
+    inset:0;
 
-top:0;
-
-width:100%;
-
-height:100%;
-
-pointer-events:none;
+    pointer-events:none;
 
 }
 
-/* Loading */
+/* ==========================
+   Loading Screen
+========================== */
 
 #loadingScreen{
 
-position:fixed;
+    position:fixed;
 
-left:0;
+    inset:0;
 
-top:0;
+    display:flex;
 
-width:100%;
+    flex-direction:column;
 
-height:100%;
+    justify-content:center;
 
-display:flex;
+    align-items:center;
 
-justify-content:center;
+    backdrop-filter:blur(10px);
 
-align-items:center;
-
-flex-direction:column;
-
-backdrop-filter:blur(8px);
-
-z-index:1000;
+    z-index:999;
 
 }
 
 #loadingScreen h2{
 
-font-family:'Caveat',cursive;
+    font-family:'Caveat',cursive;
 
-font-size:40px;
+    font-size:42px;
 
-color:#1d4d73;
+    color:#23486d;
 
-margin-bottom:25px;
+    margin-bottom:25px;
 
 }
 
 .loader{
 
-width:85%;
+    width:85%;
 
-max-width:360px;
+    max-width:360px;
 
-height:14px;
+    height:14px;
 
-background:rgba(255,255,255,.45);
+    background:rgba(255,255,255,.45);
 
-border-radius:30px;
+    border-radius:50px;
 
-overflow:hidden;
+    overflow:hidden;
 
 }
 
 .progress{
 
-height:100%;
+    width:0%;
 
-width:0%;
+    height:100%;
 
-border-radius:30px;
+    border-radius:50px;
 
-background:linear-gradient(
-90deg,
-#ff6aa9,
-#ff9ac6,
-#ffd166,
-#ff6aa9);
+    background:linear-gradient(
+        90deg,
+        #ff5ea8,
+        #ff8fc8,
+        #ffd166,
+        #ff8fc8,
+        #ff5ea8
+    );
 
-background-size:300%;
+    background-size:300%;
 
-animation:shine 2s linear infinite;
+    animation:shine 2s linear infinite;
 
 }
 
 @keyframes shine{
 
-0%{
+    from{
+        background-position:0%;
+    }
 
-background-position:0%;
-
-}
-
-100%{
-
-background-position:300%;
-
-}
+    to{
+        background-position:300%;
+    }
 
 }
 
 #loadingText{
 
-margin-top:20px;
+    margin-top:20px;
 
-font-size:17px;
+    color:#2F4C67;
 
-color:#31516f;
+    font-size:17px;
 
-text-align:center;
+    text-align:center;
 
 }
 
-/* Home */
+/* ==========================
+      Home
+========================== */
 
 #home{
 
-position:absolute;
+    position:absolute;
 
-width:100%;
+    inset:0;
 
-height:100%;
+    display:none;
 
-display:none;
+    justify-content:center;
 
-justify-content:center;
+    align-items:center;
 
-align-items:center;
-
-opacity:0;
+    opacity:0;
 
 }
 
 .hero{
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-align-items:center;
+    align-items:center;
 
-gap:18px;
-
-padding:25px;
+    gap:18px;
 
 }
 
 h1{
 
-font-family:'Caveat',cursive;
+    font-family:'Caveat',cursive;
 
-font-size:55px;
+    font-size:56px;
 
-color:#214a73;
+    color:#214A74;
 
-text-align:center;
-
-}
-
-.hero p{
-
-max-width:330px;
-
-text-align:center;
-
-line-height:1.7;
-
-font-size:18px;
-
-color:#35516c;
+    text-align:center;
 
 }
 
-/* =========================
+.subtitle{
+
+    max-width:340px;
+
+    text-align:center;
+
+    color:#3E5973;
+
+    line-height:1.8;
+
+}
+
+/* ==========================
       Premium Envelope
-========================= */
+========================== */
 
 .envelope{
 
-position:relative;
+    position:relative;
 
-width:240px;
+    width:260px;
 
-height:165px;
+    height:180px;
 
-margin-top:20px;
+    margin-top:20px;
 
-animation:float 4s ease-in-out infinite;
+    animation:float 4s ease-in-out infinite;
 
-filter:drop-shadow(0 20px 35px rgba(0,0,0,.18));
+    filter:drop-shadow(0 20px 30px rgba(0,0,0,.18));
 
 }
 
-/* Back */
-
 .envelope-back{
 
-position:absolute;
+    position:absolute;
 
-width:100%;
+    inset:0;
 
-height:100%;
+    background:#F7C7D7;
 
-background:#F9C7D8;
-
-border-radius:10px;
+    border-radius:14px;
 
 }
 
@@ -276,95 +250,102 @@ border-radius:10px;
 
 .letter{
 
-position:absolute;
+    position:absolute;
 
-left:12px;
+    left:12px;
 
-top:12px;
+    right:12px;
 
-width:216px;
+    top:12px;
 
-height:145px;
+    height:155px;
 
-background:#FFFCF8;
+    background:#FFFDF9;
 
-border-radius:8px;
+    border-radius:10px;
 
-overflow:hidden;
+    z-index:2;
 
-z-index:2;
+    overflow:hidden;
 
-display:flex;
-
-justify-content:center;
-
-align-items:flex-start;
-
-padding:18px;
+    transform:translateY(35px);
 
 }
 
-/* Paper */
+/* ==========================
+      Letter Paper
+========================== */
 
 .paper{
     width:100%;
     height:100%;
-    overflow:auto;
+    padding:22px 18px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
 }
 
 .paper h2{
     font-family:'Caveat',cursive;
     font-size:30px;
-    color:#B23A6F;
+    color:#C2467A;
     text-align:center;
     margin-bottom:12px;
 }
 
 .paper p{
-    font-size:15px;
-    color:#4F4F4F;
-    line-height:1.7;
+    font-size:14px;
+    line-height:1.8;
+    color:#555;
     text-align:center;
 }
 
-/* Flap */
+/* ==========================
+      Envelope Flap
+========================== */
 
 .flap{
     position:absolute;
     top:0;
     left:0;
     width:100%;
-    height:90px;
-    background:#F6B7CC;
+    height:95px;
+    background:linear-gradient(#FFD7E6,#F8BFD4);
     clip-path:polygon(0 0,100% 0,50% 100%);
-    transform-origin:top;
+    transform-origin:top center;
     z-index:5;
+    transition:transform .8s ease;
 }
 
-/* Front Pocket */
+/* ==========================
+      Front Pocket
+========================== */
 
 .front{
     position:absolute;
     bottom:0;
     left:0;
     width:100%;
-    height:95px;
-    background:#F3AFC5;
-    clip-path:polygon(0 100%,50% 25%,100% 100%);
+    height:105px;
+    background:linear-gradient(#F6B9CF,#F3AFC5);
+    clip-path:polygon(0 100%,50% 22%,100% 100%);
     z-index:6;
 }
 
-/* Wax Seal */
+/* ==========================
+      Wax Seal
+========================== */
 
 .seal{
     position:absolute;
     left:50%;
-    top:62px;
+    top:64px;
     transform:translateX(-50%);
-    width:50px;
-    height:50px;
+    width:52px;
+    height:52px;
     border-radius:50%;
-    background:#B23A6F;
+    background:#B23668;
     color:#fff;
     display:flex;
     justify-content:center;
@@ -372,19 +353,21 @@ padding:18px;
     font-size:22px;
     font-weight:bold;
     z-index:10;
-    box-shadow:0 6px 18px rgba(178,58,111,.35);
+    box-shadow:0 8px 18px rgba(178,54,104,.35);
 }
 
-/* Button */
+/* ==========================
+      Buttons
+========================== */
 
 button{
-    margin-top:35px;
-    padding:15px 35px;
+    margin-top:28px;
+    padding:15px 34px;
     border:none;
     border-radius:40px;
     background:rgba(255,255,255,.35);
     backdrop-filter:blur(10px);
-    color:#214a73;
+    color:#214A74;
     font-size:17px;
     font-weight:600;
     cursor:pointer;
@@ -392,39 +375,40 @@ button{
 }
 
 button:hover{
-    transform:translateY(-4px);
+    transform:translateY(-3px);
     background:#fff;
 }
 
-/* Music Button */
-
 #musicToggle{
     position:fixed;
-    top:20px;
-    right:20px;
+    top:18px;
+    right:18px;
     width:52px;
     height:52px;
     border-radius:50%;
     padding:0;
+    margin:0;
     z-index:50;
 }
 
-/* Sparkles */
+/* ==========================
+      Sparkles
+========================== */
 
 .sparkle{
     position:absolute;
     width:4px;
     height:4px;
-    background:#fff;
     border-radius:50%;
-    box-shadow:0 0 10px #fff;
+    background:#fff;
+    box-shadow:0 0 12px #fff;
     animation:sparkle 4s infinite;
 }
 
 @keyframes sparkle{
     0%,100%{
         opacity:0;
-        transform:scale(.5);
+        transform:scale(.4);
     }
     50%{
         opacity:1;
@@ -432,62 +416,75 @@ button:hover{
     }
 }
 
-/* Petals */
+/* ==========================
+      Petals
+========================== */
 
 .petal{
     position:absolute;
     width:16px;
     height:16px;
-    background:#FF94BF;
+    background:#FF8FBF;
     border-radius:60% 0 60% 0;
     animation:fall linear forwards;
 }
 
 @keyframes fall{
     from{
-        transform:translateY(-30px) rotate(0deg);
+        transform:translateY(-40px) rotate(0deg);
     }
     to{
         transform:translateY(110vh) rotate(720deg);
     }
 }
 
-/* Floating */
+/* ==========================
+      Floating
+========================== */
 
 @keyframes float{
     0%,100%{
-        transform:translateY(0);
+        transform:translateY(0px);
     }
     50%{
         transform:translateY(-12px);
     }
 }
 
-/* Mobile */
+/* ==========================
+      Mobile
+========================== */
 
-@media(max-width:480px){
+@media (max-width:480px){
 
     h1{
         font-size:42px;
     }
 
+    .subtitle{
+        font-size:16px;
+        padding:0 16px;
+    }
+
     .envelope{
-        width:210px;
-        height:145px;
+        width:220px;
+        height:155px;
     }
 
     .letter{
-        width:188px;
-        height:126px;
+        height:132px;
     }
 
-    .hero p{
-        font-size:16px;
-        padding:0 10px;
+    .paper h2{
+        font-size:26px;
+    }
+
+    .paper p{
+        font-size:13px;
     }
 
     button{
         width:90%;
         max-width:280px;
     }
-   }
+                    }
