@@ -3,161 +3,163 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <title>Project Baccha ❤️</title>
 
-<title>To My Dearest Baccha ❤️</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
-rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-
-<link rel="stylesheet"
-href="style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<!-- Animated Background -->
+    <!-- Animated Background -->
+    <div id="background"></div>
+    <div id="sparkles"></div>
+    <div id="petals"></div>
 
-<div id="background"></div>
+    <!-- ==========================
+         Loading Screen
+    =========================== -->
 
-<div id="sparkles"></div>
+    <section id="loadingScreen">
 
-<div id="petals"></div>
+        <h2>Creating Something Special...</h2>
 
-<!-- Loading Screen -->
+        <div class="loader">
+            <div class="progress"></div>
+        </div>
 
-<section id="loadingScreen">
+        <p id="loadingText">
+            💌 Collecting our memories...
+        </p>
 
-<h2>
+    </section>
 
-Creating Something Special...
+    <!-- ==========================
+         Home Screen
+    =========================== -->
 
-</h2>
+    <section id="home">
 
-<div class="loader">
+        <div class="hero">
 
-<div class="progress"></div>
+            <h1>
+                To My Dearest Baccha ❤️
+            </h1>
 
-</div>
+            <p class="subtitle">
+                Before today begins...<br>
+                I have something only you can open.
+            </p>
 
-<p id="loadingText">
+            <!-- Premium Envelope -->
 
-Collecting our memories...
+            <div class="envelope" id="envelope">
 
-</p>
+                <!-- Back Body -->
+                <div class="envelope-back"></div>
 
-</section>
+                <!-- Hidden Letter -->
 
-<!-- Home -->
+                <div class="letter" id="letter">
 
-<section id="home">
+                    <div class="paper">
 
-<div class="hero">
+                        <h2>My Dearest Baccha ❤️</h2>
 
-<h1>
+                        <p>
 
-To My Dearest Baccha ❤️
+                            Before you begin this journey...
 
-</h1>
+                            <br><br>
 
-<p>
+                            Every memory inside this website
+                            was chosen with love.
 
-Before today begins...
+                            <br><br>
 
-I have something only you can open.
+                            I hope every smile,
+                            every laugh,
+                            and every little moment
+                            reminds you how special
+                            you are to me.
 
-</p>
+                        </p>
 
-<!-- Envelope -->
+                    </div>
 
-<div class="envelope">
+                </div>
 
-<div class="envelope-back"></div>
+                <!-- Flap -->
 
-<div class="letter">
+                <div class="flap" id="flap"></div>
 
-<div class="paper">
+                <!-- Front Pocket -->
 
-<h2>
+                <div class="front"></div>
 
-My Dearest Baccha ❤️
+                <!-- Wax Seal -->
 
-</h2>
+                <div class="seal" id="seal">
 
-<p>
+                    ❤
 
-Every page of this website
-was created with love.
+                </div>
 
-This is only the beginning
-of our little journey...
+            </div>
 
-</p>
+            <button id="openLetter">
 
-</div>
+                Open With Love 💌
 
-</div>
+            </button>
 
-<div class="flap"></div>
+        </div>
 
-<div class="front"></div>
 
-<div class="seal">
+        <!-- Music Button -->
 
-❤
+        <button id="musicToggle" aria-label="Play or pause music">
 
-</div>
+            🎵
 
-</div>
+        </button>
 
-<button id="openLetter">
+    </section>
 
-Open With Love 💌
+    <!-- Background Music -->
 
-</button>
+    <audio id="bgMusic" loop preload="auto">
 
-</div>
-    
-<!-- Background Music -->
+        <source src="assets/music/song.mp3" type="audio/mpeg">
 
-<audio id="bgMusic" loop preload="auto">
+        Your browser does not support the audio element.
 
-    <source src="assets/music/song.mp3" type="audio/mpeg">
+    </audio>
 
-    Your browser does not support the audio element.
+    <!-- Data -->
 
-</audio>
+    <script src="data.js"></script>
 
-<!-- Music Button -->
+    <!-- Animations -->
 
-<button id="musicToggle">
+    <script src="animations.js"></script>
 
-    🎵
+    <!-- Main Script -->
 
-</button>
-
-</section>
-
-<!-- JavaScript Files -->
-
-<script src="data.js"></script>
-
-<script src="animations.js"></script>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
