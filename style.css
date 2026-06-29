@@ -311,10 +311,17 @@ h1{
 }
 
 .paper p{
-    font-size:14px;
-    line-height:1.8;
+
+    font-size:15px;
+
+    line-height:2;
+
     color:#555;
+
     text-align:center;
+
+    margin-top:8px;
+
 }
 
 /* ==========================
