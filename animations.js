@@ -1,6 +1,6 @@
 // =====================================
 // Project Baccha ❤️
-// animations.js V1.1
+// animations.js V1.2.1
 // =====================================
 
 const envelope = document.getElementById("envelope");
@@ -11,9 +11,13 @@ const openButton = document.getElementById("openLetter");
 
 let opened = false;
 
-// Initial Position
+// ----------------------------
+// Initial State
+// ----------------------------
+
 gsap.set(letter, {
-    y: 35
+    y: 10,
+    scale: 1
 });
 
 gsap.set(flap, {
@@ -21,51 +25,85 @@ gsap.set(flap, {
     transformOrigin: "top center"
 });
 
-// Open Envelope
-function openEnvelope(){
+gsap.set(seal, {
+    scale: 1
+});
 
-    if(opened) return;
+// ----------------------------
+// Open Envelope
+// ----------------------------
+
+function openEnvelope() {
+
+    if (opened) return;
 
     opened = true;
 
     const tl = gsap.timeline();
 
-    // Pop Seal
+    // Envelope Bounce
 
-    tl.to(seal,{
-        scale:0,
-        duration:0.35,
-        ease:"back.in(2)"
+    tl.to(envelope, {
+        y: -8,
+        duration: 0.25,
+        ease: "power1.out"
+    });
+
+    tl.to(envelope, {
+        y: 0,
+        duration: 0.25,
+        ease: "power1.in"
+    });
+
+    // Wax Seal Pops
+
+    tl.to(seal, {
+        scale: 0,
+        rotation: 180,
+        opacity: 0,
+        duration: 0.45,
+        ease: "back.in(2)"
     });
 
     // Open Flap
 
-    tl.to(flap,{
-        rotationX:-180,
-        duration:0.8,
-        ease:"power2.inOut"
-    },"-=0.1");
+    tl.to(flap, {
+        rotationX: -180,
+        duration: 0.9,
+        ease: "power2.inOut"
+    }, "-=0.15");
 
     // Pull Letter Out
 
-    tl.to(letter,{
-        y:-95,
-        duration:1.2,
-        ease:"power3.out"
+    tl.to(letter, {
+        y: -145,
+        duration: 1.4,
+        ease: "power3.out"
+    });
+
+    // Small Floating Effect
+
+    tl.to(letter, {
+        y: -155,
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
     });
 
     // Change Button
 
-    tl.to(openButton,{
-        opacity:0,
-        duration:0.25,
-        onComplete:()=>{
+    gsap.to(openButton, {
+        opacity: 0,
+        duration: 0.25,
+        delay: 2.2,
+        onComplete: () => {
 
-            openButton.innerHTML="Read My Letter ❤️";
+            openButton.innerHTML = "Read My Letter ❤️";
 
-            gsap.to(openButton,{
-                opacity:1,
-                duration:0.3
+            gsap.to(openButton, {
+                opacity: 1,
+                duration: 0.4
             });
 
         }
@@ -73,5 +111,10 @@ function openEnvelope(){
 
 }
 
-openButton.addEventListener("click",openEnvelope);
-envelope.addEventListener("click",openEnvelope);
+// ----------------------------
+// Events
+// ----------------------------
+
+openButton.addEventListener("click", openEnvelope);
+
+envelope.addEventListener("click", openEnvelope);
