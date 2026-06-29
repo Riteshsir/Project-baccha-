@@ -76,7 +76,7 @@ function openEnvelope() {
     // Pull Letter Out
 
     tl.to(letter, {
-        y: -145,
+        y: -185,
         duration: 1.4,
         ease: "power3.out"
     });
