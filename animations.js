@@ -1,98 +1,77 @@
-/* ==========================================
-   Project Baccha ❤️
-   File : animations.js
-   Version : 1.0
-========================================== */
+// =====================================
+// Project Baccha ❤️
+// animations.js V1.1
+// =====================================
 
-document.addEventListener("DOMContentLoaded", () => {
+const envelope = document.getElementById("envelope");
+const flap = document.getElementById("flap");
+const letter = document.getElementById("letter");
+const seal = document.getElementById("seal");
+const openButton = document.getElementById("openLetter");
 
-    createSparkles();
-    createPetals();
-    animateEnvelope();
+let opened = false;
 
+// Initial Position
+gsap.set(letter, {
+    y: 35
 });
 
-/* =========================
-   Floating Sparkles
-========================= */
+gsap.set(flap, {
+    rotationX: 0,
+    transformOrigin: "top center"
+});
 
-function createSparkles() {
+// Open Envelope
+function openEnvelope(){
 
-    const container = document.getElementById("sparkles");
+    if(opened) return;
 
-    for (let i = 0; i < 35; i++) {
+    opened = true;
 
-        const sparkle = document.createElement("div");
+    const tl = gsap.timeline();
 
-        sparkle.className = "sparkle";
+    // Pop Seal
 
-        sparkle.style.left = Math.random() * 100 + "%";
+    tl.to(seal,{
+        scale:0,
+        duration:0.35,
+        ease:"back.in(2)"
+    });
 
-        sparkle.style.top = Math.random() * 100 + "%";
+    // Open Flap
 
-        sparkle.style.animationDelay = Math.random() * 6 + "s";
+    tl.to(flap,{
+        rotationX:-180,
+        duration:0.8,
+        ease:"power2.inOut"
+    },"-=0.1");
 
-        sparkle.style.animationDuration = (4 + Math.random() * 4) + "s";
+    // Pull Letter Out
 
-        container.appendChild(sparkle);
+    tl.to(letter,{
+        y:-95,
+        duration:1.2,
+        ease:"power3.out"
+    });
 
-    }
+    // Change Button
 
-}
+    tl.to(openButton,{
+        opacity:0,
+        duration:0.25,
+        onComplete:()=>{
 
-/* =========================
-   Falling Petals
-========================= */
+            openButton.innerHTML="Read My Letter ❤️";
 
-function createPetals() {
+            gsap.to(openButton,{
+                opacity:1,
+                duration:0.3
+            });
 
-    const container = document.getElementById("petals");
-
-    setInterval(() => {
-
-        const petal = document.createElement("div");
-
-        petal.className = "petal";
-
-        petal.style.left = Math.random() * window.innerWidth + "px";
-
-        petal.style.animationDuration = (6 + Math.random() * 5) + "s";
-
-        petal.style.opacity = Math.random();
-
-        petal.style.transform =
-            "rotate(" + Math.random() * 360 + "deg)";
-
-        container.appendChild(petal);
-
-        setTimeout(() => {
-
-            petal.remove();
-
-        },11000);
-
-    },350);
-
-}
-
-/* =========================
-   Envelope Floating
-========================= */
-
-function animateEnvelope(){
-
-    gsap.to(".envelope",{
-
-        y:-15,
-
-        duration:2,
-
-        repeat:-1,
-
-        yoyo:true,
-
-        ease:"power1.inOut"
-
+        }
     });
 
 }
+
+openButton.addEventListener("click",openEnvelope);
+envelope.addEventListener("click",openEnvelope);
