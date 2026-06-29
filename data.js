@@ -1,108 +1,61 @@
-/* ==========================================
-   Project Baccha ❤️
-   File : data.js
-   Version : 1.0
-========================================== */
+// =====================================
+// Project Baccha ❤️
+// data.js V1.1
+// =====================================
 
-/* Loading Messages */
+const projectData = {
 
-const loadingMessages = [
-    "💌 Collecting our memories...",
-    "📸 Looking for our photos...",
-    "🍜 Remembering our first Maggi...",
-    "🛕 Visiting Akshardham...",
-    "🤝 Holding your hand again...",
-    "💙 Finding your smile...",
-    "❤️ Almost Ready, Baccha..."
-];
+    websiteName: "Project Baccha ❤️",
 
-/* Home Screen */
+    receiver: "My Dearest Baccha ❤️",
 
-const homeData = {
+    openButtonText: "Open With Love 💌",
 
-    title: "To My Dearest Baccha ❤️",
+    readButtonText: "Read My Letter ❤️",
 
-    subtitle: "Before today begins... I have something only you can open.",
+    music: {
 
-    button: "Open With Love 💌"
+        autoplay: false,
 
-};
+        loop: true
 
-/* Background Music */
+    },
 
-const musicData = {
+    letter: {
 
-    enabled: true,
+        title: "My Dearest Baccha ❤️",
 
-    file: "assets/music/song.mp3"
+        message: `
 
-};
+Before you begin this journey...
 
-/* Letter Preview */
+Every memory inside this website
+was chosen with love.
 
-const letterPreview = {
+I hope every smile,
+every laugh,
+and every little moment
+reminds you how special
+you are to me.
 
-    heading: "My Dearest Baccha ❤️",
+This is only the beginning...
 
-    message:
-`Before we begin this little journey...
+❤️
 
-I just want you to know that every memory in this website is a piece of my heart.
+`
 
-So take your time...
+    },
 
-Open every page...
+    loadingMessages: [
 
-Smile...
+        "💌 Collecting our memories...",
+        "🌸 Decorating with love...",
+        "✨ Adding a little magic...",
+        "❤️ Almost ready...",
+        "🎁 Just one more second..."
 
-Laugh...
+    ],
 
-And remember...
-
-Every moment here was made only for you. 💙`
-
-};
-
-/* Timeline Data (Used in V2.0) */
-
-const timeline = [
-
-{
-date:"23 Oct 2024",
-title:"Our First Meeting",
-description:"'Tu real hai?' 😄 Our first meeting felt a little awkward, but it's one of my favourite memories."
-},
-
-{
-date:"23 Oct 2024",
-title:"First Maggi",
-description:"At the institute, Jyoti made Maggi for you. Such a simple moment, yet unforgettable."
-},
-
-{
-date:"29 Nov 2024",
-title:"Akshardham",
-description:"Our first photo together at Akshardham Temple. A beautiful memory we'll always keep."
-},
-
-{
-date:"Oct 2024",
-title:"First Hand Holding",
-description:"That first time we held hands while walking on the road... I still remember the feeling."
-},
-
-{
-date:"12 Dec 2024",
-title:"The Proposal ❤️",
-description:"The day I asked you to be mine. The beginning of our beautiful story."
-}
-
-];
-
-/* Footer */
-
-const footerData = {
-
-text:"Made with ❤️ by Sir Ji"
+    version: "1.1"
 
 };
