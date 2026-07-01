@@ -1,25 +1,55 @@
 // =====================================
 // Project Baccha ❤️
-// data.js V1.1
+// data.js V2.0
 // =====================================
 
 const projectData = {
 
-    websiteName: "Project Baccha ❤️",
+    // ----------------------------
+    // Project Information
+    // ----------------------------
 
-    receiver: "My Dearest Baccha ❤️",
+    version: "2.0",
 
-    openButtonText: "Open With Love 💌",
+    projectName: "Project Baccha ❤️",
 
-    readButtonText: "Read My Letter ❤️",
+    receiverName: "My Baccha ❤️",
 
-    music: {
+    // ----------------------------
+    // Button Text
+    // ----------------------------
 
-        autoplay: false,
+    buttons: {
 
-        loop: true
+        openLetter: "Open With Love 💌",
+
+        readLetter: "Read My Letter ❤️",
+
+        beginJourney: "🌸 Begin Our Journey ✨"
 
     },
+
+    // ----------------------------
+    // Loading Screen
+    // ----------------------------
+
+    loadingMessages: [
+
+        "💌 Preparing something beautiful...",
+
+        "🌸 Decorating with love...",
+
+        "✨ Collecting our memories...",
+
+        "❤️ Adding a little magic...",
+
+        "🎁 Almost ready..."
+
+    ],
+
+    // ----------------------------
+    // Letter
+    // ----------------------------
 
     letter: {
 
@@ -29,33 +59,65 @@ const projectData = {
 
 Before you begin this journey...
 
-Every memory inside this website
-was chosen with love.
+I made every little part of this website
+with love, patience, and countless thoughts of you.
 
-I hope every smile,
-every laugh,
-and every little moment
-reminds you how special
-you are to me.
+Every animation,
+every memory,
+every surprise
+has a little piece of my heart inside it.
 
-This is only the beginning...
+Today is your special day,
+and I hope this little gift
+makes you smile from the bottom of your heart.
 
-❤️
+Happy Birthday ❤️
 
-`
+        `
 
     },
 
-    loadingMessages: [
+    // ----------------------------
+    // Welcome Screen
+    // ----------------------------
 
-        "💌 Collecting our memories...",
-        "🌸 Decorating with love...",
-        "✨ Adding a little magic...",
-        "❤️ Almost ready...",
-        "🎁 Just one more second..."
+    welcome: {
 
-    ],
+        title: "Happy Birthday, My Baccha ❤️",
 
-    version: "1.1"
+        message: `
+
+Welcome to your little world.
+
+Take your time,
+smile often,
+and enjoy every memory.
+
+Everything here
+was made only for you.
+
+❤️
+
+        `
+
+    },
+
+    // ----------------------------
+    // Music
+    // ----------------------------
+
+    music: {
+
+        autoplay: false,
+
+        loop: true,
+
+        volume: 0.7
+
+    }
 
 };
+
+// =====================================
+// End of data.js V2.0
+// =====================================
