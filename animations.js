@@ -11,7 +11,7 @@ const envelope = document.getElementById("envelope");
 const flap = document.getElementById("flap");
 const letter = document.getElementById("letter");
 const seal = document.getElementById("seal");
-
+ 
 // IMPORTANT:
 // We use a different variable name than script.js
 const envelopeButton = document.getElementById("openLetter");
