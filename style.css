@@ -1,7 +1,11 @@
 /* ==========================================
    Project Baccha ❤️
-   style.css V1.3
+   style.css V2.0
 ========================================== */
+
+/* ==========================
+   Reset
+========================== */
 
 *{
     margin:0;
@@ -18,7 +22,7 @@ body{
     width:100%;
     min-height:100vh;
 
-    overflow-x:hidden;
+    overflow:hidden;
 
     display:flex;
     justify-content:center;
@@ -36,12 +40,12 @@ body{
 
     background-size:400% 400%;
 
-    animation:bgMove 15s ease infinite;
+    animation:bgMove 16s ease infinite;
 
 }
 
 /* ==========================
-      Background Animation
+   Animated Background
 ========================== */
 
 @keyframes bgMove{
@@ -73,7 +77,7 @@ body{
 }
 
 /* ==========================
-      Loading Screen
+   Loading Screen
 ========================== */
 
 #loadingScreen{
@@ -84,43 +88,71 @@ body{
 
     display:flex;
 
-    flex-direction:column;
-
     justify-content:center;
 
     align-items:center;
 
-    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,.18);
 
-    z-index:999;
+    backdrop-filter:blur(12px);
+
+    z-index:9999;
 
 }
 
-#loadingScreen h2{
+.loadingCard{
+
+    width:90%;
+
+    max-width:420px;
+
+    padding:40px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.55);
+
+    backdrop-filter:blur(20px);
+
+    text-align:center;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+
+}
+
+.loadingCard h1{
 
     font-family:'Caveat',cursive;
 
-    font-size:42px;
+    font-size:56px;
 
     color:#214A74;
 
-    margin-bottom:25px;
+    margin-bottom:20px;
+
+}
+
+#loadingText{
+
+    color:#45627F;
+
+    margin-bottom:24px;
+
+    line-height:1.7;
 
 }
 
 .loader{
 
-    width:85%;
-
-    max-width:360px;
+    width:100%;
 
     height:14px;
+
+    background:rgba(255,255,255,.55);
 
     border-radius:50px;
 
     overflow:hidden;
-
-    background:rgba(255,255,255,.45);
 
 }
 
@@ -134,44 +166,36 @@ body{
 
     background:linear-gradient(
         90deg,
-        #ff5ea8,
-        #ff8fc8,
-        #ffd166,
-        #ff8fc8,
-        #ff5ea8
+        #FF6FAE,
+        #FFC2D8,
+        #FFD166,
+        #FFC2D8,
+        #FF6FAE
     );
 
     background-size:300%;
 
-    animation:shine 2s linear infinite;
+    animation:loadingGlow 2s linear infinite;
 
 }
 
-@keyframes shine{
+@keyframes loadingGlow{
 
     from{
+
         background-position:0%;
+
     }
 
     to{
+
         background-position:300%;
+
     }
 
 }
-
-#loadingText{
-
-    margin-top:18px;
-
-    color:#3E5973;
-
-    font-size:17px;
-
-    text-align:center;
-
-}
 /* ==========================
-      Home Screen
+   Home Screen
 ========================== */
 
 #home{
@@ -200,17 +224,17 @@ body{
 
     align-items:center;
 
-    gap:18px;
-
     text-align:center;
+
+    gap:20px;
 
 }
 
 /* ==========================
-      Headings
+   Typography
 ========================== */
 
-h1{
+.hero h1{
 
     font-family:'Caveat',cursive;
 
@@ -218,39 +242,37 @@ h1{
 
     color:#214A74;
 
-    text-align:center;
+    line-height:1.1;
 
 }
 
 .subtitle{
 
-    max-width:360px;
+    max-width:380px;
 
-    color:#4F667E;
+    font-size:17px;
 
     line-height:1.8;
 
-    font-size:17px;
+    color:#55657A;
 
 }
 
 /* ==========================
-      Premium Envelope
+   Premium Envelope
 ========================== */
 
 .envelope{
 
     position:relative;
 
-    width:270px;
+    width:280px;
 
-    height:190px;
+    height:200px;
 
-    margin-top:20px;
+    margin-top:18px;
 
-    overflow:visible;
-
-    filter:drop-shadow(0 20px 35px rgba(0,0,0,.20));
+    filter:drop-shadow(0 20px 35px rgba(0,0,0,.18));
 
     animation:floatEnvelope 4s ease-in-out infinite;
 
@@ -264,12 +286,12 @@ h1{
 
     inset:0;
 
-    border-radius:16px;
+    border-radius:18px;
 
     background:linear-gradient(
         180deg,
         #FFDCE8,
-        #F8BFD4
+        #F7BED3
     );
 
 }
@@ -286,17 +308,18 @@ h1{
 
     top:12px;
 
-    height:165px;
+    height:175px;
 
-    background:#FFFDF9;
+    background:#FFFDFB;
 
-    border-radius:10px;
-
-    z-index:8;
+    border-radius:12px;
 
     overflow:hidden;
 
-    box-shadow:0 10px 20px rgba(0,0,0,.10);
+    z-index:3;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,.10);
 
 }
 
@@ -314,7 +337,7 @@ h1{
 
     flex-direction:column;
 
-    justify-content:flex-start;
+    align-items:center;
 
 }
 
@@ -328,24 +351,21 @@ h1{
 
     margin-bottom:12px;
 
-    text-align:center;
-
 }
 
 .paper p{
 
     font-size:14px;
 
-    line-height:1.8;
+    line-height:1.75;
 
     color:#555;
 
     text-align:center;
 
-      }
-
+}
 /* ==========================
-      Envelope Flap
+   Envelope Flap
 ========================== */
 
 .flap{
@@ -356,12 +376,12 @@ h1{
     left:0;
 
     width:100%;
-    height:95px;
+    height:100px;
 
     background:linear-gradient(
         180deg,
-        #FFE3EC,
-        #F7BDD2
+        #FFE4EE,
+        #F8BED4
     );
 
     clip-path:polygon(0 0,100% 0,50% 100%);
@@ -376,7 +396,7 @@ h1{
 }
 
 /* ==========================
-      Front Pocket
+   Front Pocket
 ========================== */
 
 .front{
@@ -387,45 +407,42 @@ h1{
     bottom:0;
 
     width:100%;
-    height:108px;
+    height:112px;
 
     background:linear-gradient(
         180deg,
-        #F7B8CF,
-        #F19CBC
+        #F8BDD3,
+        #F3A8C4
     );
 
-    clip-path:polygon(0 100%,50% 22%,100% 100%);
+    clip-path:polygon(0 100%,50% 20%,100% 100%);
 
-    z-index:4;
-
-    box-shadow:
-        inset 0 2px 8px rgba(255,255,255,.35);
+    z-index:6;
 
 }
 
 /* ==========================
-      Wax Seal
+   Wax Seal
 ========================== */
 
 .seal{
 
     position:absolute;
 
-    top:62px;
+    top:65px;
     left:50%;
 
     transform:translateX(-50%);
 
-    width:54px;
-    height:54px;
+    width:56px;
+    height:56px;
 
     border-radius:50%;
 
     background:radial-gradient(
         circle at 30% 30%,
-        #D84B82,
-        #A91F55
+        #D94D84,
+        #A51E55
     );
 
     display:flex;
@@ -434,7 +451,7 @@ h1{
 
     align-items:center;
 
-    color:#fff;
+    color:#ffffff;
 
     font-size:24px;
 
@@ -443,17 +460,15 @@ h1{
     z-index:20;
 
     box-shadow:
-        0 10px 20px rgba(169,31,85,.45);
+        0 10px 25px rgba(165,30,85,.45);
 
 }
 
 /* ==========================
-      Buttons
+   Buttons
 ========================== */
 
 button{
-
-    margin-top:26px;
 
     padding:15px 34px;
 
@@ -469,14 +484,14 @@ button{
 
     color:#214A74;
 
-    background:rgba(255,255,255,.40);
+    background:rgba(255,255,255,.45);
 
     backdrop-filter:blur(12px);
 
     transition:
-        transform .30s ease,
-        background .30s ease,
-        box-shadow .30s ease;
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
 
 }
 
@@ -487,7 +502,7 @@ button:hover{
     background:#ffffff;
 
     box-shadow:
-        0 10px 25px rgba(0,0,0,.15);
+        0 12px 30px rgba(0,0,0,.15);
 
 }
 
@@ -498,7 +513,7 @@ button:active{
 }
 
 /* ==========================
-      Music Button
+   Music Button
 ========================== */
 
 #musicToggle{
@@ -514,22 +529,21 @@ button:active{
     margin:0;
     padding:0;
 
-    border-radius:50%;
-
     display:flex;
 
     justify-content:center;
 
     align-items:center;
 
+    border-radius:50%;
+
     font-size:24px;
 
     z-index:100;
 
 }
-
 /* ==========================
-      Sparkles
+   Sparkles
 ========================== */
 
 .sparkle{
@@ -554,7 +568,6 @@ button:active{
     0%,100%{
 
         opacity:0;
-
         transform:scale(.4);
 
     }
@@ -562,7 +575,6 @@ button:active{
     50%{
 
         opacity:1;
-
         transform:scale(1.8);
 
     }
@@ -570,7 +582,7 @@ button:active{
 }
 
 /* ==========================
-      Petals
+   Petals
 ========================== */
 
 .petal{
@@ -609,14 +621,14 @@ button:active{
 }
 
 /* ==========================
-      Floating Envelope
+   Floating Envelope
 ========================== */
 
 @keyframes floatEnvelope{
 
     0%,100%{
 
-        transform:translateY(0px);
+        transform:translateY(0);
 
     }
 
@@ -629,7 +641,7 @@ button:active{
 }
 
 /* ==========================
-      Welcome Screen
+   Welcome Screen
 ========================== */
 
 #welcomeScreen{
@@ -646,9 +658,9 @@ button:active{
 
     padding:24px;
 
-    background:rgba(255,248,252,.82);
+    background:rgba(255,248,252,.85);
 
-    backdrop-filter:blur(18px);
+    backdrop-filter:blur(20px);
 
     opacity:0;
 
@@ -660,21 +672,21 @@ button:active{
 
     width:100%;
 
-    max-width:460px;
+    max-width:480px;
 
     padding:42px 30px;
 
-    border-radius:28px;
+    border-radius:30px;
 
     text-align:center;
 
-    background:rgba(255,255,255,.70);
+    background:rgba(255,255,255,.72);
 
-    border:1px solid rgba(255,255,255,.60);
+    border:1px solid rgba(255,255,255,.6);
 
     box-shadow:0 20px 60px rgba(0,0,0,.12);
 
-    animation:welcomeFade .9s ease;
+    animation:welcomeFade .8s ease;
 
 }
 
@@ -684,9 +696,9 @@ button:active{
 
     font-size:52px;
 
-    color:#C24E7C;
+    color:#C2467A;
 
-    margin-bottom:22px;
+    margin-bottom:20px;
 
 }
 
@@ -708,29 +720,13 @@ button:active{
 
     max-width:280px;
 
-    margin:auto;
-
-    padding:16px 24px;
-
-    border:none;
-
-    border-radius:50px;
-
-    cursor:pointer;
-
-    color:#fff;
-
-    font-size:18px;
-
-    font-weight:600;
+    color:#ffffff;
 
     background:linear-gradient(
         135deg,
         #FF7EB3,
         #FF5C8D
     );
-
-    box-shadow:0 12px 30px rgba(255,92,141,.35);
 
 }
 
@@ -759,14 +755,14 @@ button:active{
 }
 
 /* ==========================
-      Mobile
+   Mobile
 ========================== */
 
-@media (max-width:480px){
+@media (max-width:768px){
 
-    h1{
+    .hero h1{
 
-        font-size:42px;
+        font-size:46px;
 
     }
 
@@ -774,21 +770,21 @@ button:active{
 
         font-size:16px;
 
-        padding:0 16px;
+        padding:0 15px;
 
     }
 
     .envelope{
 
-        width:220px;
+        width:240px;
 
-        height:160px;
+        height:175px;
 
     }
 
     .letter{
 
-        height:140px;
+        height:150px;
 
     }
 
@@ -814,6 +810,8 @@ button:active{
 
         font-size:15px;
 
+        line-height:1.8;
+
     }
 
     button{
@@ -824,5 +822,4 @@ button:active{
 
     }
 
-}
-
+   }
