@@ -1,12 +1,11 @@
-console.log("script.js loaded");
 // =====================================
 // Project Baccha ❤️
-// script.js V1.3
+// script.js V2.0
 // =====================================
 
-// ------------------------
+// ----------------------------
 // Elements
-// ------------------------
+// ----------------------------
 
 const loadingScreen = document.getElementById("loadingScreen");
 const home = document.getElementById("home");
@@ -21,24 +20,12 @@ const musicToggle = document.getElementById("musicToggle");
 const openButton = document.getElementById("openLetter");
 const beginJourney = document.getElementById("beginJourney");
 
-// ------------------------
-// Loading Messages
-// ------------------------
-
-const messages = [
-    "💌 Collecting our memories...",
-    "🌸 Decorating with love...",
-    "✨ Adding a little magic...",
-    "❤️ Almost ready...",
-    "🎁 Just one more second..."
-];
+// ----------------------------
+// Loading Screen
+// ----------------------------
 
 let percent = 0;
 let messageIndex = 0;
-
-// ------------------------
-// Loading Screen
-// ------------------------
 
 const loadingInterval = setInterval(() => {
 
@@ -46,11 +33,13 @@ const loadingInterval = setInterval(() => {
 
     progress.style.width = percent + "%";
 
-    if (percent % 20 === 0 && messageIndex < messages.length - 1) {
+    if (percent % 20 === 0 &&
+        messageIndex < projectData.loadingMessages.length - 1) {
 
         messageIndex++;
 
-        loadingText.innerHTML = messages[messageIndex];
+        loadingText.textContent =
+            projectData.loadingMessages[messageIndex];
 
     }
 
@@ -60,21 +49,21 @@ const loadingInterval = setInterval(() => {
 
         gsap.to(loadingScreen, {
 
-            opacity:0,
+            opacity: 0,
 
-            duration:1,
+            duration: 1,
 
-            onComplete:()=>{
+            onComplete: () => {
 
-                loadingScreen.style.display="none";
+                loadingScreen.style.display = "none";
 
-                home.style.display="flex";
+                home.style.display = "flex";
 
-                gsap.to(home,{
+                gsap.to(home, {
 
-                    opacity:1,
+                    opacity: 1,
 
-                    duration:1
+                    duration: 1
 
                 });
 
@@ -84,162 +73,168 @@ const loadingInterval = setInterval(() => {
 
     }
 
-},35);
+}, 35);
 
-// ------------------------
+// ----------------------------
 // Music
-// ------------------------
+// ----------------------------
 
-let playing=false;
+music.volume = projectData.music.volume;
 
-musicToggle.addEventListener("click",()=>{
+let musicPlaying = false;
 
-    if(!playing){
+musicToggle.addEventListener("click", () => {
+
+    if (!musicPlaying) {
 
         music.play();
 
-        musicToggle.innerHTML="🔊";
+        musicToggle.textContent = "🔊";
 
-        playing=true;
+        musicPlaying = true;
 
-    }else{
+    } else {
 
         music.pause();
 
-        musicToggle.innerHTML="🎵";
+        musicToggle.textContent = "🎵";
 
-        playing=false;
+        musicPlaying = false;
 
     }
 
 });
 
-// ------------------------
+// ----------------------------
 // Sparkles
-// ------------------------
+// ----------------------------
 
-const sparkleContainer=document.getElementById("sparkles");
+const sparkleContainer = document.getElementById("sparkles");
 
-function createSparkle(){
+function createSparkle() {
 
-    const sparkle=document.createElement("div");
+    const sparkle = document.createElement("div");
 
-    sparkle.className="sparkle";
+    sparkle.className = "sparkle";
 
-    sparkle.style.left=Math.random()*window.innerWidth+"px";
-    sparkle.style.top=Math.random()*window.innerHeight+"px";
+    sparkle.style.left =
+        Math.random() * window.innerWidth + "px";
 
-    sparkle.style.animationDuration=
-    (2+Math.random()*3)+"s";
+    sparkle.style.top =
+        Math.random() * window.innerHeight + "px";
+
+    sparkle.style.animationDuration =
+        (2 + Math.random() * 3) + "s";
 
     sparkleContainer.appendChild(sparkle);
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
         sparkle.remove();
 
-    },5000);
+    }, 5000);
 
 }
 
-setInterval(createSparkle,300);
+setInterval(createSparkle, 300);
 
-// ------------------------
+// ----------------------------
 // Petals
-// ------------------------
+// ----------------------------
 
-const petalContainer=document.getElementById("petals");
+const petalContainer = document.getElementById("petals");
 
-function createPetal(){
+function createPetal() {
 
-    const petal=document.createElement("div");
+    const petal = document.createElement("div");
 
-    petal.className="petal";
+    petal.className = "petal";
 
-    petal.style.left=Math.random()*window.innerWidth+"px";
+    petal.style.left =
+        Math.random() * window.innerWidth + "px";
 
-    petal.style.animationDuration=
-    (5+Math.random()*5)+"s";
+    petal.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
 
-    petal.style.opacity=
-    0.5+Math.random()*0.5;
+    petal.style.opacity =
+        0.4 + Math.random() * 0.6;
 
     petalContainer.appendChild(petal);
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
         petal.remove();
 
-    },10000);
+    }, 10000);
 
 }
 
-setInterval(createPetal,450);
+setInterval(createPetal, 450);
 
-// ------------------------
-// Read My Letter
-// ------------------------
+// ----------------------------
+// Read Letter
+// ----------------------------
 
-openButton.addEventListener("click",()=>{
+openButton.addEventListener("click", () => {
 
-    if(openButton.innerHTML==="Read My Letter ❤️"){
+    if (openButton.textContent === projectData.buttons.readLetter) {
 
-        setTimeout(()=>{
+        gsap.to(home, {
 
-            gsap.to(home,{
+            opacity: 0,
 
-                opacity:0,
+            duration: 1,
 
-                duration:1,
+            onComplete: () => {
 
-                onComplete:()=>{
+                home.style.display = "none";
 
-                    home.style.display="none";
+                welcomeScreen.style.display = "flex";
 
-                    welcomeScreen.style.display="flex";
+                gsap.to(welcomeScreen, {
 
-                    gsap.to(welcomeScreen,{
+                    opacity: 1,
 
-                        opacity:1,
+                    duration: 1
 
-                        duration:1
+                });
 
-                    });
+            }
 
-                }
-
-            });
-
-        },300);
+        });
 
     }
 
 });
 
-// ------------------------
+// ----------------------------
 // Begin Journey
-// ------------------------
+// ----------------------------
 
-beginJourney.addEventListener("click",()=>{
+beginJourney.addEventListener("click", () => {
 
-    alert("✨ Memory Gallery is coming in V1.4 ❤️");
+    alert("🎉 Memory Gallery will be added in Version 2.1 ❤️");
 
 });
 
-// ------------------------
+// ----------------------------
 // Background Animation
-// ------------------------
+// ----------------------------
 
-gsap.to("#background",{
+gsap.to("#background", {
 
-    backgroundPosition:"200% 200%",
+    backgroundPosition: "200% 200%",
 
-    duration:30,
+    duration: 30,
 
-    repeat:-1,
+    repeat: -1,
 
-    yoyo:true,
+    yoyo: true,
 
-    ease:"none"
+    ease: "none"
 
 });
+
+// =====================================
+// End of script.js V2.0
+// =====================================
