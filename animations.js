@@ -1,7 +1,11 @@
 // =====================================
 // Project Baccha ❤️
-// animations.js V1.2.1
+// animations.js V2.0
 // =====================================
+
+// ----------------------------
+// Elements
+// ----------------------------
 
 const envelope = document.getElementById("envelope");
 const flap = document.getElementById("flap");
@@ -9,15 +13,14 @@ const letter = document.getElementById("letter");
 const seal = document.getElementById("seal");
 const openButton = document.getElementById("openLetter");
 
-let opened = false;
+let envelopeOpened = false;
 
 // ----------------------------
 // Initial State
 // ----------------------------
 
 gsap.set(letter, {
-    y: 10,
-    scale: 1
+    y: 20
 });
 
 gsap.set(flap, {
@@ -26,7 +29,8 @@ gsap.set(flap, {
 });
 
 gsap.set(seal, {
-    scale: 1
+    scale: 1,
+    opacity: 1
 });
 
 // ----------------------------
@@ -35,27 +39,27 @@ gsap.set(seal, {
 
 function openEnvelope() {
 
-    if (opened) return;
+    if (envelopeOpened) return;
 
-    opened = true;
+    envelopeOpened = true;
 
     const tl = gsap.timeline();
 
-    // Envelope Bounce
+    // Small bounce
 
     tl.to(envelope, {
         y: -8,
         duration: 0.25,
-        ease: "power1.out"
+        ease: "power2.out"
     });
 
     tl.to(envelope, {
         y: 0,
         duration: 0.25,
-        ease: "power1.in"
+        ease: "power2.in"
     });
 
-    // Wax Seal Pops
+    // Wax seal
 
     tl.to(seal, {
         scale: 0,
@@ -65,48 +69,56 @@ function openEnvelope() {
         ease: "back.in(2)"
     });
 
-    // Open Flap
+    // Open flap
 
     tl.to(flap, {
         rotationX: -180,
-        duration: 0.9,
+        duration: 0.8,
         ease: "power2.inOut"
     }, "-=0.15");
 
-    // Pull Letter Out
+    // Pull letter out
 
     tl.to(letter, {
-        y: -185,
-        duration: 1.4,
+        y: -170,
+        duration: 1.2,
         ease: "power3.out"
     });
 
-    // Small Floating Effect
+    // Floating letter
 
     tl.to(letter, {
         y: -155,
-        duration: 1.5,
+        duration: 2,
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut"
     });
 
-    // Change Button
+    // Change button text
 
     gsap.to(openButton, {
+
         opacity: 0,
+
         duration: 0.25,
-        delay: 2.2,
+
+        delay: 2,
+
         onComplete: () => {
 
-            openButton.innerHTML = "Read My Letter ❤️";
+            openButton.innerHTML = projectData.buttons.readLetter;
 
             gsap.to(openButton, {
+
                 opacity: 1,
+
                 duration: 0.4
+
             });
 
         }
+
     });
 
 }
@@ -118,3 +130,7 @@ function openEnvelope() {
 openButton.addEventListener("click", openEnvelope);
 
 envelope.addEventListener("click", openEnvelope);
+
+// =====================================
+// End of animations.js V2.0
+// =====================================
