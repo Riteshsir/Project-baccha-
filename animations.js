@@ -1,6 +1,6 @@
 // =====================================
 // Project Baccha ❤️
-// animations.js V2.0
+// animations.js V2.0.1
 // =====================================
 
 // ----------------------------
@@ -11,7 +11,10 @@ const envelope = document.getElementById("envelope");
 const flap = document.getElementById("flap");
 const letter = document.getElementById("letter");
 const seal = document.getElementById("seal");
-const openButton = document.getElementById("openLetter");
+
+// IMPORTANT:
+// We use a different variable name than script.js
+const envelopeButton = document.getElementById("openLetter");
 
 let envelopeOpened = false;
 
@@ -45,7 +48,7 @@ function openEnvelope() {
 
     const tl = gsap.timeline();
 
-    // Small bounce
+    // Envelope Bounce
 
     tl.to(envelope, {
         y: -8,
@@ -59,7 +62,7 @@ function openEnvelope() {
         ease: "power2.in"
     });
 
-    // Wax seal
+    // Remove Wax Seal
 
     tl.to(seal, {
         scale: 0,
@@ -69,7 +72,7 @@ function openEnvelope() {
         ease: "back.in(2)"
     });
 
-    // Open flap
+    // Open Flap
 
     tl.to(flap, {
         rotationX: -180,
@@ -77,7 +80,7 @@ function openEnvelope() {
         ease: "power2.inOut"
     }, "-=0.15");
 
-    // Pull letter out
+    // Pull Letter Out
 
     tl.to(letter, {
         y: -170,
@@ -85,7 +88,7 @@ function openEnvelope() {
         ease: "power3.out"
     });
 
-    // Floating letter
+    // Floating Letter
 
     tl.to(letter, {
         y: -155,
@@ -95,9 +98,9 @@ function openEnvelope() {
         ease: "sine.inOut"
     });
 
-    // Change button text
+    // Change Button Text
 
-    gsap.to(openButton, {
+    gsap.to(envelopeButton, {
 
         opacity: 0,
 
@@ -107,9 +110,19 @@ function openEnvelope() {
 
         onComplete: () => {
 
-            openButton.innerHTML = projectData.buttons.readLetter;
+            if (
+                typeof projectData !== "undefined" &&
+                projectData.buttons &&
+                projectData.buttons.readLetter
+            ) {
+                envelopeButton.textContent =
+                    projectData.buttons.readLetter;
+            } else {
+                envelopeButton.textContent =
+                    "Read My Letter ❤️";
+            }
 
-            gsap.to(openButton, {
+            gsap.to(envelopeButton, {
 
                 opacity: 1,
 
@@ -127,10 +140,10 @@ function openEnvelope() {
 // Events
 // ----------------------------
 
-openButton.addEventListener("click", openEnvelope);
+envelopeButton.addEventListener("click", openEnvelope);
 
 envelope.addEventListener("click", openEnvelope);
 
 // =====================================
-// End of animations.js V2.0
+// End of animations.js V2.0.1
 // =====================================
