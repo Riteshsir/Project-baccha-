@@ -3,243 +3,240 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Project Baccha ❤️</title>
+    <title>Project Baccha ❤️</title>
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+    <!-- Google Fonts -->
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
-rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<link rel="stylesheet"
-href="style.css">
+    <!-- GSAP -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<!-- Animated Layers -->
+    <!-- Background Layers -->
 
-<div id="background"></div>
+    <div id="background"></div>
 
-<div id="sparkles"></div>
+    <div id="sparkles"></div>
 
-<div id="petals"></div>
+    <div id="petals"></div>
 
-<!-- Loading -->
+    <!-- ==========================
+         Loading Screen
+    =========================== -->
 
-<section id="loadingScreen">
+    <section id="loadingScreen">
 
-<h2>
+        <h2>Creating Something Special...</h2>
 
-Creating Something Special...
+        <div class="loader">
 
-</h2>
+            <div class="progress"></div>
 
-<div class="loader">
+        </div>
 
-<div class="progress"></div>
+        <p id="loadingText">
 
-</div>
-
-<p id="loadingText">
-
-💌 Collecting our memories...
-
-</p>
-
-</section>
-
-<!-- Home -->
-
-<section id="home">
-
-<div class="hero">
-
-<h1>
-
-To My Dearest Baccha ❤️
-
-</h1>
-
-<p class="subtitle">
-
-Before today begins...
-
-<br>
-
-I have something only you can open.
-
-</p>
-
-<!-- ==================================
-        Premium Envelope V1.2
-=================================== -->
-
-<div
-class="envelope"
-id="envelope">
-
-<!-- Shadow -->
-
-<div class="shadow"></div>
-
-<!-- Back -->
-
-<div class="envelope-back"></div>
-
-<!-- Letter -->
-
-<div
-class="letter"
-id="letter">
-
-<div class="paper">
-
-<div class="paper-top"></div>
-
-<h2>
-
-My Dearest Baccha ❤️
-
-</h2>
-
-<p>
-
-Before you begin this little journey...
-
-<br><br>
-
-Every page,
-every photo,
-every animation
-was made with love.
-
-<br><br>
-
-Open it slowly...
-
-❤️
-
-</p>
-
-</div>
-
-</div>
-
-<!-- Flap -->
-
-<div
-class="flap"
-id="flap">
-
-</div>
-
-<!-- Left Fold -->
-
-<div class="left-fold"></div>
-
-<!-- Right Fold -->
-
-<div class="right-fold"></div>
-
-<!-- Front Pocket -->
-
-<div class="front"></div>
-
-<!-- Wax Seal -->
-
-<div
-class="seal"
-id="seal">
-
-❤
-
-</div>
-
-<!-- Small Hearts -->
-
-<div class="heart heart1"></div>
-
-<div class="heart heart2"></div>
-
-<div class="heart heart3"></div>
-
-</div>
-
-<button
-id="openLetter">
-
-Open With Love 💌
-
-</button>
-
-</div>
-
-        <!-- Floating Light -->
-        <div id="floatingLight"></div>
-
-        <!-- Music Button -->
-        <button id="musicToggle" aria-label="Toggle Music">
-            🎵
-        </button>
-
-    </section>
-
-    <!-- ==========================================
-        Welcome Screen V1.3
-========================================== -->
-
-<section id="welcomeScreen">
-
-    <div class="welcomeCard">
-
-        <h1 class="welcomeTitle">
-            Happy Birthday,
-            <br>
-            My Baccha ❤️
-        </h1>
-
-        <p class="welcomeText">
-
-            Before we continue...
-
-            <br><br>
-
-            Everything you are about to see
-            was made only for you.
-
-            <br><br>
-
-            Every memory,
-            every smile,
-            every surprise,
-            has a little piece of my heart in it.
-
-            <br><br>
-
-            I hope this journey
-            makes you smile today.
+            💌 Collecting our memories...
 
         </p>
 
-        <button id="beginJourney">
+    </section>
 
-            🌸 Begin The Journey ✨
+    <!-- ==========================
+         Home Screen
+    =========================== -->
+
+    <section id="home">
+
+        <div class="hero">
+
+            <h1>
+
+                To My Dearest Baccha ❤️
+
+            </h1>
+
+            <p class="subtitle">
+
+                Before today begins...
+
+                <br>
+
+                I have something only you can open.
+
+            </p>
+
+            <!-- Premium Envelope -->
+
+            <div class="envelope" id="envelope">
+
+                <!-- Back -->
+
+                <div class="envelope-back"></div>
+
+                <!-- Letter -->
+
+                <div class="letter" id="letter">
+
+                    <div class="paper">
+
+                        <h2>
+
+                            My Dearest Baccha ❤️
+
+                        </h2>
+
+                        <p>
+
+                            Before you begin this little journey...
+
+                            <br><br>
+
+                            Every page,
+                            every memory,
+                            every smile,
+                            was made with love.
+
+                            <br><br>
+
+                            Open it slowly...
+
+                            ❤️
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Flap -->
+
+                <div class="flap" id="flap"></div>
+
+                <!-- Front -->
+
+                <div class="front"></div>
+
+                <!-- Seal -->
+
+                <div class="seal" id="seal">
+
+                    ❤
+
+                </div>
+
+            </div>
+
+            <button id="openLetter">
+
+                Open With Love 💌
+
+            </button>
+
+        </div>
+
+        <!-- Music Button -->
+
+        <button id="musicToggle" aria-label="Toggle Music">
+
+            🎵
 
         </button>
 
-    </div>
+        </section>
+    <!-- ==========================
+         Welcome Screen
+    =========================== -->
 
-</section>
+    <section id="welcomeScreen">
+
+        <div class="welcomeCard">
+
+            <h1 class="welcomeTitle">
+
+                Happy Birthday,
+                <br>
+                My Baccha ❤️
+
+            </h1>
+
+            <p class="welcomeText">
+
+                Before we continue...
+
+                <br><br>
+
+                Everything you are about to see
+                was created with love.
+
+                <br><br>
+
+                Every memory,
+                every smile,
+                every little surprise
+                has a piece of my heart inside it.
+
+                <br><br>
+
+                I hope this journey
+                makes you smile today
+                and always reminds you
+                how special you are.
+
+                ❤️
+
+            </p>
+
+            <button id="beginJourney">
+
+                🌸 Begin The Journey ✨
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+         Background Music
+    =========================== -->
+
+    <audio id="bgMusic" loop preload="auto">
+
+        <source src="assets/music/song.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+
+    </audio>
+
+    <!-- ==========================
+         JavaScript Files
+    =========================== -->
+
+    <script src="data.js"></script>
+
+    <script src="animations.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
