@@ -1,6 +1,636 @@
 /* ==========================================
-      Welcome Screen V1.3
+   Project Baccha ❤️
+   style.css V1.3
 ========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    width:100%;
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:'Poppins',sans-serif;
+
+    background:linear-gradient(
+        -45deg,
+        #A8D8FF,
+        #FFD8E8,
+        #FFF6F8,
+        #C8ECFF
+    );
+
+    background-size:400% 400%;
+
+    animation:bgMove 15s ease infinite;
+
+}
+
+/* ==========================
+      Background Animation
+========================== */
+
+@keyframes bgMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+#background,
+#sparkles,
+#petals{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
+
+/* ==========================
+      Loading Screen
+========================== */
+
+#loadingScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    backdrop-filter:blur(10px);
+
+    z-index:999;
+
+}
+
+#loadingScreen h2{
+
+    font-family:'Caveat',cursive;
+
+    font-size:42px;
+
+    color:#214A74;
+
+    margin-bottom:25px;
+
+}
+
+.loader{
+
+    width:85%;
+
+    max-width:360px;
+
+    height:14px;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.45);
+
+}
+
+.progress{
+
+    width:0%;
+
+    height:100%;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        90deg,
+        #ff5ea8,
+        #ff8fc8,
+        #ffd166,
+        #ff8fc8,
+        #ff5ea8
+    );
+
+    background-size:300%;
+
+    animation:shine 2s linear infinite;
+
+}
+
+@keyframes shine{
+
+    from{
+        background-position:0%;
+    }
+
+    to{
+        background-position:300%;
+    }
+
+}
+
+#loadingText{
+
+    margin-top:18px;
+
+    color:#3E5973;
+
+    font-size:17px;
+
+    text-align:center;
+
+}
+/* ==========================
+      Home Screen
+========================== */
+
+#home{
+
+    position:absolute;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    padding:20px;
+
+}
+
+.hero{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:18px;
+
+    text-align:center;
+
+}
+
+/* ==========================
+      Headings
+========================== */
+
+h1{
+
+    font-family:'Caveat',cursive;
+
+    font-size:58px;
+
+    color:#214A74;
+
+    text-align:center;
+
+}
+
+.subtitle{
+
+    max-width:360px;
+
+    color:#4F667E;
+
+    line-height:1.8;
+
+    font-size:17px;
+
+}
+
+/* ==========================
+      Premium Envelope
+========================== */
+
+.envelope{
+
+    position:relative;
+
+    width:270px;
+
+    height:190px;
+
+    margin-top:20px;
+
+    overflow:visible;
+
+    filter:drop-shadow(0 20px 35px rgba(0,0,0,.20));
+
+    animation:floatEnvelope 4s ease-in-out infinite;
+
+}
+
+/* Back */
+
+.envelope-back{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:16px;
+
+    background:linear-gradient(
+        180deg,
+        #FFDCE8,
+        #F8BFD4
+    );
+
+}
+
+/* Letter */
+
+.letter{
+
+    position:absolute;
+
+    left:12px;
+
+    right:12px;
+
+    top:12px;
+
+    height:165px;
+
+    background:#FFFDF9;
+
+    border-radius:10px;
+
+    z-index:8;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.10);
+
+}
+
+/* Paper */
+
+.paper{
+
+    width:100%;
+
+    height:100%;
+
+    padding:22px 18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
+
+}
+
+.paper h2{
+
+    font-family:'Caveat',cursive;
+
+    font-size:30px;
+
+    color:#C2467A;
+
+    margin-bottom:12px;
+
+    text-align:center;
+
+}
+
+.paper p{
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    color:#555;
+
+    text-align:center;
+
+      }
+
+/* ==========================
+      Envelope Flap
+========================== */
+
+.flap{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:95px;
+
+    background:linear-gradient(
+        180deg,
+        #FFE3EC,
+        #F7BDD2
+    );
+
+    clip-path:polygon(0 0,100% 0,50% 100%);
+
+    transform-origin:top center;
+
+    z-index:10;
+
+    box-shadow:
+        inset 0 -3px 8px rgba(0,0,0,.08);
+
+}
+
+/* ==========================
+      Front Pocket
+========================== */
+
+.front{
+
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:100%;
+    height:108px;
+
+    background:linear-gradient(
+        180deg,
+        #F7B8CF,
+        #F19CBC
+    );
+
+    clip-path:polygon(0 100%,50% 22%,100% 100%);
+
+    z-index:4;
+
+    box-shadow:
+        inset 0 2px 8px rgba(255,255,255,.35);
+
+}
+
+/* ==========================
+      Wax Seal
+========================== */
+
+.seal{
+
+    position:absolute;
+
+    top:62px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:54px;
+    height:54px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle at 30% 30%,
+        #D84B82,
+        #A91F55
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:#fff;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    z-index:20;
+
+    box-shadow:
+        0 10px 20px rgba(169,31,85,.45);
+
+}
+
+/* ==========================
+      Buttons
+========================== */
+
+button{
+
+    margin-top:26px;
+
+    padding:15px 34px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:#214A74;
+
+    background:rgba(255,255,255,.40);
+
+    backdrop-filter:blur(12px);
+
+    transition:
+        transform .30s ease,
+        background .30s ease,
+        box-shadow .30s ease;
+
+}
+
+button:hover{
+
+    transform:translateY(-4px);
+
+    background:#ffffff;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/* ==========================
+      Music Button
+========================== */
+
+#musicToggle{
+
+    position:fixed;
+
+    top:20px;
+    right:20px;
+
+    width:56px;
+    height:56px;
+
+    margin:0;
+    padding:0;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:24px;
+
+    z-index:100;
+
+}
+
+/* ==========================
+      Sparkles
+========================== */
+
+.sparkle{
+
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    box-shadow:0 0 12px #ffffff;
+
+    animation:sparkle 4s infinite;
+
+}
+
+@keyframes sparkle{
+
+    0%,100%{
+
+        opacity:0;
+
+        transform:scale(.4);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.8);
+
+    }
+
+}
+
+/* ==========================
+      Petals
+========================== */
+
+.petal{
+
+    position:absolute;
+
+    width:16px;
+    height:16px;
+
+    background:#FF8FBF;
+
+    border-radius:60% 0 60% 0;
+
+    animation:fall linear forwards;
+
+}
+
+@keyframes fall{
+
+    from{
+
+        transform:
+        translateY(-40px)
+        rotate(0deg);
+
+    }
+
+    to{
+
+        transform:
+        translateY(110vh)
+        rotate(720deg);
+
+    }
+
+}
+
+/* ==========================
+      Floating Envelope
+========================== */
+
+@keyframes floatEnvelope{
+
+    0%,100%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+}
+
+/* ==========================
+      Welcome Screen
+========================== */
 
 #welcomeScreen{
 
@@ -38,12 +668,13 @@
 
     text-align:center;
 
-    background:rgba(255,255,255,.65);
+    background:rgba(255,255,255,.70);
 
-    border:1px solid rgba(255,255,255,.55);
+    border:1px solid rgba(255,255,255,.60);
 
-    box-shadow:
-        0 20px 60px rgba(0,0,0,.12);
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+
+    animation:welcomeFade .9s ease;
 
 }
 
@@ -55,7 +686,7 @@
 
     color:#C24E7C;
 
-    margin-bottom:24px;
+    margin-bottom:22px;
 
 }
 
@@ -71,17 +702,13 @@
 
 }
 
-/* ==========================================
-      Begin Journey Button
-========================================== */
-
 #beginJourney{
 
     width:100%;
 
     max-width:280px;
 
-    margin-top:10px;
+    margin:auto;
 
     padding:16px 24px;
 
@@ -91,11 +718,11 @@
 
     cursor:pointer;
 
+    color:#fff;
+
     font-size:18px;
 
     font-weight:600;
-
-    color:#ffffff;
 
     background:linear-gradient(
         135deg,
@@ -103,37 +730,9 @@
         #FF5C8D
     );
 
-    box-shadow:
-        0 12px 30px rgba(255,92,141,.35);
-
-    transition:
-        transform .35s ease,
-        box-shadow .35s ease,
-        background .35s ease;
+    box-shadow:0 12px 30px rgba(255,92,141,.35);
 
 }
-
-#beginJourney:hover{
-
-    transform:
-        translateY(-4px)
-        scale(1.03);
-
-    box-shadow:
-        0 18px 40px rgba(255,92,141,.45);
-
-}
-
-#beginJourney:active{
-
-    transform:
-        scale(.96);
-
-}
-
-/* ==========================================
-      Welcome Animation
-========================================== */
 
 @keyframes welcomeFade{
 
@@ -159,32 +758,55 @@
 
 }
 
-.welcomeCard{
-
-    animation:
-    welcomeFade
-    .9s
-    ease;
-
-}
-
-/* ==========================================
+/* ==========================
       Mobile
-========================================== */
+========================== */
 
 @media (max-width:480px){
 
-    .welcomeCard{
+    h1{
 
-        padding:34px 22px;
+        font-size:42px;
 
-        border-radius:22px;
+    }
+
+    .subtitle{
+
+        font-size:16px;
+
+        padding:0 16px;
+
+    }
+
+    .envelope{
+
+        width:220px;
+
+        height:160px;
+
+    }
+
+    .letter{
+
+        height:140px;
+
+    }
+
+    .paper h2{
+
+        font-size:26px;
+
+    }
+
+    .paper p{
+
+        font-size:13px;
 
     }
 
     .welcomeTitle{
 
-        font-size:42px;
+        font-size:40px;
 
     }
 
@@ -192,16 +814,15 @@
 
         font-size:15px;
 
-        line-height:1.9;
-
     }
 
-    #beginJourney{
+    button{
 
-        font-size:16px;
+        width:90%;
 
-        padding:15px;
+        max-width:280px;
 
     }
 
 }
+
