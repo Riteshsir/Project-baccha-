@@ -1,3 +1,4 @@
+console.log("script.js loaded");
 // =====================================
 // Project Baccha ❤️
 // script.js V1.3
