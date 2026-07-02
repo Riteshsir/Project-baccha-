@@ -1,149 +1,380 @@
 // =====================================
 // Project Baccha ❤️
-// animations.js V2.0.1
+// animations.js V3.0
 // =====================================
 
-// ----------------------------
+// ==========================
 // Elements
-// ----------------------------
+// ==========================
 
-const envelope = document.getElementById("envelope");
-const flap = document.getElementById("flap");
-const letter = document.getElementById("letter");
-const seal = document.getElementById("seal");
- 
-// IMPORTANT:
-// We use a different variable name than script.js
-const envelopeButton = document.getElementById("openLetter");
+const envelope =
+document.getElementById("envelope");
+
+const flap =
+document.getElementById("flap");
+
+const letter =
+document.getElementById("letter");
+
+const seal =
+document.getElementById("seal");
+
+// Don't declare openButton here.
+// It is already declared in script.js.
+
+// ==========================
+// State
+// ==========================
 
 let envelopeOpened = false;
 
-// ----------------------------
-// Initial State
-// ----------------------------
+// ==========================
+// Initial Animation
+// ==========================
 
-gsap.set(letter, {
-    y: 20
-});
+gsap.set(
 
-gsap.set(flap, {
-    rotationX: 0,
-    transformOrigin: "top center"
-});
+    letter,
 
-gsap.set(seal, {
-    scale: 1,
-    opacity: 1
-});
+    {
 
-// ----------------------------
+        y:20,
+
+        scale:1,
+
+        rotation:0
+
+    }
+
+);
+
+gsap.set(
+
+    flap,
+
+    {
+
+        rotationX:0,
+
+        transformOrigin:"top center"
+
+    }
+
+);
+
+gsap.set(
+
+    seal,
+
+    {
+
+        scale:1,
+
+        opacity:1
+
+    }
+
+);
+
+// Floating Envelope
+
+gsap.to(
+
+    envelope,
+
+    {
+
+        y:-10,
+
+        duration:2.2,
+
+        repeat:-1,
+
+        yoyo:true,
+
+        ease:"sine.inOut"
+
+    }
+
+);
+
+// ==========================
 // Open Envelope
-// ----------------------------
+// ==========================
 
-function openEnvelope() {
+function openEnvelope(){
 
-    if (envelopeOpened) return;
+    if(envelopeOpened) return;
 
     envelopeOpened = true;
 
     const tl = gsap.timeline();
 
-    // Envelope Bounce
+    // Small Bounce
 
-    tl.to(envelope, {
-        y: -8,
-        duration: 0.25,
-        ease: "power2.out"
-    });
+    tl.to(
 
-    tl.to(envelope, {
-        y: 0,
-        duration: 0.25,
-        ease: "power2.in"
-    });
+        envelope,
 
-    // Remove Wax Seal
+        {
 
-    tl.to(seal, {
-        scale: 0,
-        rotation: 180,
-        opacity: 0,
-        duration: 0.45,
-        ease: "back.in(2)"
-    });
+            scale:1.03,
 
-    // Open Flap
+            duration:.20,
 
-    tl.to(flap, {
-        rotationX: -180,
-        duration: 0.8,
-        ease: "power2.inOut"
-    }, "-=0.15");
-
-    // Pull Letter Out
-
-    tl.to(letter, {
-        y: -170,
-        duration: 1.2,
-        ease: "power3.out"
-    });
-
-    // Floating Letter
-
-    tl.to(letter, {
-        y: -155,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-    });
-
-    // Change Button Text
-
-    gsap.to(envelopeButton, {
-
-        opacity: 0,
-
-        duration: 0.25,
-
-        delay: 2,
-
-        onComplete: () => {
-
-            if (
-                typeof projectData !== "undefined" &&
-                projectData.buttons &&
-                projectData.buttons.readLetter
-            ) {
-                envelopeButton.textContent =
-                    projectData.buttons.readLetter;
-            } else {
-                envelopeButton.textContent =
-                    "Read My Letter ❤️";
-            }
-
-            gsap.to(envelopeButton, {
-
-                opacity: 1,
-
-                duration: 0.4
-
-            });
+            ease:"power2.out"
 
         }
 
-    });
+    );
+
+    tl.to(
+
+        envelope,
+
+        {
+
+            scale:1,
+
+            duration:.20
+
+        }
+
+    );
+
+    // Break Wax Seal
+
+    tl.to(
+
+        seal,
+
+        {
+
+            scale:0,
+
+            rotation:180,
+
+            opacity:0,
+
+            duration:.45,
+
+            ease:"back.in(2)"
+
+        }
+
+    );
+
+    // Open Flap
+
+    tl.to(
+
+        flap,
+
+        {
+
+            rotationX:-180,
+
+            duration:.9,
+
+            ease:"power2.inOut"
+
+        },
+
+        "-=.15"
+
+    );
+
+    // Pull Letter Out
+
+    tl.to(
+
+        letter,
+
+        {
+
+            y:-210,
+
+            duration:1.3,
+
+            ease:"power3.out"
+
+        }
+
+    );
+
+    // Floating Letter
+
+    tl.to(
+
+        letter,
+
+        {
+
+            y:-195,
+
+            duration:1.6,
+
+            repeat:-1,
+
+            yoyo:true,
+
+            ease:"sine.inOut"
+
+        }
+
+    );
+
+    // Change Button
+
+    gsap.to(
+
+        openButton,
+
+        {
+
+            opacity:0,
+
+            delay:2.1,
+
+            duration:.3,
+
+            onComplete:()=>{
+
+                openButton.textContent=
+
+                projectData.buttons.readLetter;
+
+                gsap.to(
+
+                    openButton,
+
+                    {
+
+                        opacity:1,
+
+                        duration:.4
+
+                    }
+
+                );
+
+            }
+
+        }
+
+    );
 
 }
 
-// ----------------------------
+
+// ==========================
 // Events
-// ----------------------------
+// ==========================
 
-envelopeButton.addEventListener("click", openEnvelope);
+// First click opens the envelope.
 
-envelope.addEventListener("click", openEnvelope);
+openButton.addEventListener(
+
+    "click",
+
+    ()=>{
+
+        if(!envelopeOpened){
+
+            openEnvelope();
+
+            return;
+
+        }
+
+        // Second click shows Welcome Screen
+
+        if(
+
+            openButton.textContent===
+
+            projectData.buttons.readLetter
+
+        ){
+
+            showWelcomeScreen();
+
+        }
+
+    }
+
+);
+
+// Clicking the envelope also opens it
+
+envelope.addEventListener(
+
+    "click",
+
+    ()=>{
+
+        if(!envelopeOpened){
+
+            openEnvelope();
+
+        }
+
+    }
+
+);
+
+// ==========================
+// Extra Animation
+// ==========================
+
+// Gentle floating letter after opening
+
+gsap.to(
+
+    letter,
+
+    {
+
+        rotation:1.5,
+
+        duration:2,
+
+        repeat:-1,
+
+        yoyo:true,
+
+        ease:"sine.inOut"
+
+    }
+
+);
+
+// ==========================
+// Window Resize Fix
+// ==========================
+
+window.addEventListener(
+
+    "resize",
+
+    ()=>{
+
+        gsap.set(
+
+            envelope,
+
+            {
+
+                clearProps:"transform"
+
+            }
+
+        );
+
+    }
+
+);
 
 // =====================================
-// End of animations.js V2.0.1
+// End of animations.js V3.0
 // =====================================
