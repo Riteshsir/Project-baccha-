@@ -1,240 +1,324 @@
 // =====================================
 // Project Baccha ❤️
-// script.js V2.0
+// script.js V3.0
 // =====================================
 
-// ----------------------------
+// ==========================
 // Elements
-// ----------------------------
+// ==========================
 
-const loadingScreen = document.getElementById("loadingScreen");
-const home = document.getElementById("home");
-const welcomeScreen = document.getElementById("welcomeScreen");
+const loadingScreen =
+document.getElementById("loadingScreen");
 
-const progress = document.querySelector(".progress");
-const loadingText = document.getElementById("loadingText");
+const home =
+document.getElementById("home");
 
-const music = document.getElementById("bgMusic");
-const musicToggle = document.getElementById("musicToggle");
+const welcomeScreen =
+document.getElementById("welcomeScreen");
 
-const openButton = document.getElementById("openLetter");
-const beginJourney = document.getElementById("beginJourney");
+const progress =
+document.querySelector(".progress");
 
-// ----------------------------
+const loadingText =
+document.getElementById("loadingText");
+
+const music =
+document.getElementById("bgMusic");
+
+const musicToggle =
+document.getElementById("musicToggle");
+
+const beginJourney =
+document.getElementById("beginJourney");
+
+// ==========================
+// Apply Data
+// ==========================
+
+document.title =
+projectData.website.title;
+
+loadingText.textContent =
+projectData.loading.messages[0];
+
+beginJourney.textContent =
+projectData.buttons.beginJourney;
+
+// ==========================
 // Loading Screen
-// ----------------------------
+// ==========================
 
-let percent = 0;
+let loadingPercent = 0;
+
 let messageIndex = 0;
 
-const loadingInterval = setInterval(() => {
+const loadingAnimation = setInterval(() => {
 
-    percent++;
+    loadingPercent++;
 
-    progress.style.width = percent + "%";
+    progress.style.width =
+    loadingPercent + "%";
 
-    if (percent % 20 === 0 &&
-        messageIndex < projectData.loadingMessages.length - 1) {
+    if(
+
+        loadingPercent % 20 === 0 &&
+
+        messageIndex <
+        projectData.loading.messages.length - 1
+
+    ){
 
         messageIndex++;
 
         loadingText.textContent =
-            projectData.loadingMessages[messageIndex];
+        projectData.loading.messages[messageIndex];
 
     }
 
-    if (percent >= 100) {
+    if(loadingPercent >= 100){
 
-        clearInterval(loadingInterval);
+        clearInterval(loadingAnimation);
 
-        gsap.to(loadingScreen, {
+        gsap.to(
 
-            opacity: 0,
+            loadingScreen,
 
-            duration: 1,
+            {
 
-            onComplete: () => {
+                opacity:0,
 
-                loadingScreen.style.display = "none";
+                duration:1,
 
-                home.style.display = "flex";
+                onComplete:()=>{
 
-                gsap.to(home, {
+                    loadingScreen.style.display="none";
 
-                    opacity: 1,
+                    home.style.display="flex";
 
-                    duration: 1
+                    gsap.to(
 
-                });
+                        home,
+
+                        {
+
+                            opacity:1,
+
+                            duration:1
+
+                        }
+
+                    );
+
+                }
 
             }
 
-        });
+        );
 
     }
 
-}, 35);
+},35);
 
-// ----------------------------
-// Music
-// ----------------------------
+// ==========================
+// Background Music
+// ==========================
 
-music.volume = projectData.music.volume;
+music.volume =
+projectData.music.volume;
 
-let musicPlaying = false;
+music.loop =
+projectData.music.loop;
 
-musicToggle.addEventListener("click", () => {
+// ==========================
+// Auto Play Music
+// ==========================
 
-    if (!musicPlaying) {
+function startMusic(){
 
-        music.play();
+    if(!projectData.music.autoplay) return;
 
-        musicToggle.textContent = "🔊";
+    music.play()
 
-        musicPlaying = true;
+    .then(()=>{
 
-    } else {
+        musicToggle.textContent="🔊";
 
-        music.pause();
+    })
 
-        musicToggle.textContent = "🎵";
+    .catch(()=>{
 
-        musicPlaying = false;
+        musicToggle.textContent="🎵";
+
+    });
+
+}
+
+// Mobile browsers require a user interaction
+
+document.addEventListener(
+
+    "click",
+
+    startMusic,
+
+    {
+
+        once:true
 
     }
 
-});
+);
 
-// ----------------------------
+// ==========================
+// Music Button
+// ==========================
+
+let musicPlaying=false;
+
+musicToggle.addEventListener(
+
+    "click",
+
+    ()=>{
+
+        if(music.paused){
+
+            music.play();
+
+            musicToggle.textContent="🔊";
+
+            musicPlaying=true;
+
+        }
+
+        else{
+
+            music.pause();
+
+            musicToggle.textContent="🎵";
+
+            musicPlaying=false;
+
+        }
+
+    }
+
+);
+
+// ==========================
 // Sparkles
-// ----------------------------
+// ==========================
 
-const sparkleContainer = document.getElementById("sparkles");
+const sparkleContainer=
 
-function createSparkle() {
+document.getElementById("sparkles");
 
-    const sparkle = document.createElement("div");
+function createSparkle(){
 
-    sparkle.className = "sparkle";
+    const sparkle=
 
-    sparkle.style.left =
-        Math.random() * window.innerWidth + "px";
+    document.createElement("div");
 
-    sparkle.style.top =
-        Math.random() * window.innerHeight + "px";
+    sparkle.className="sparkle";
 
-    sparkle.style.animationDuration =
-        (2 + Math.random() * 3) + "s";
+    sparkle.style.left=
+
+    Math.random()*window.innerWidth+"px";
+
+    sparkle.style.top=
+
+    Math.random()*window.innerHeight+"px";
+
+    sparkle.style.animationDuration=
+
+    (2+Math.random()*3)+"s";
 
     sparkleContainer.appendChild(sparkle);
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
         sparkle.remove();
 
-    }, 5000);
+    },5000);
 
 }
 
-setInterval(createSparkle, 300);
+setInterval(
 
-// ----------------------------
-// Petals
-// ----------------------------
+    createSparkle,
 
-const petalContainer = document.getElementById("petals");
+    300
 
-function createPetal() {
+);
 
-    const petal = document.createElement("div");
+// ==========================
+// Falling Petals
+// ==========================
 
-    petal.className = "petal";
+const petalContainer=
 
-    petal.style.left =
-        Math.random() * window.innerWidth + "px";
+document.getElementById("petals");
 
-    petal.style.animationDuration =
-        (5 + Math.random() * 5) + "s";
+function createPetal(){
 
-    petal.style.opacity =
-        0.4 + Math.random() * 0.6;
+    const petal=
+
+    document.createElement("div");
+
+    petal.className="petal";
+
+    petal.style.left=
+
+    Math.random()*window.innerWidth+"px";
+
+    petal.style.animationDuration=
+
+    (5+Math.random()*4)+"s";
+
+    petal.style.opacity=
+
+    .4+Math.random()*.6;
 
     petalContainer.appendChild(petal);
 
-    setTimeout(() => {
+    setTimeout(()=>{
 
         petal.remove();
 
-    }, 10000);
+    },10000);
 
 }
 
-setInterval(createPetal, 450);
+setInterval(
 
-// ----------------------------
-// Read Letter
-// ----------------------------
+    createPetal,
 
-openButton.addEventListener("click", () => {
+    450
 
-    if (openButton.textContent === projectData.buttons.readLetter) {
+);
 
-        gsap.to(home, {
+// ==========================
+// Background Animation
+// ==========================
 
-            opacity: 0,
+gsap.to(
 
-            duration: 1,
+    "#background",
 
-            onComplete: () => {
+    {
 
-                home.style.display = "none";
+        backgroundPosition:
 
-                welcomeScreen.style.display = "flex";
+        "200% 200%",
 
-                gsap.to(welcomeScreen, {
+        duration:30,
 
-                    opacity: 1,
+        repeat:-1,
 
-                    duration: 1
+        yoyo:true,
 
-                });
-
-            }
-
-        });
+        ease:"none"
 
     }
 
-});
-
-// ----------------------------
-// Begin Journey
-// ----------------------------
-
-beginJourney.addEventListener("click", () => {
-
-    alert("🎉 Memory Gallery will be added in Version 2.1 ❤️");
-
-});
-
-// ----------------------------
-// Background Animation
-// ----------------------------
-
-gsap.to("#background", {
-
-    backgroundPosition: "200% 200%",
-
-    duration: 30,
-
-    repeat: -1,
-
-    yoyo: true,
-
-    ease: "none"
-
-});
-
-// =====================================
-// End of script.js V2.0
-// =====================================
+);
