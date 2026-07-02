@@ -322,3 +322,194 @@ gsap.to(
     }
 
 );
+// ==========================
+// Welcome Screen
+// ==========================
+
+function showWelcomeScreen(){
+
+    gsap.to(
+
+        home,
+
+        {
+
+            opacity:0,
+
+            duration:1,
+
+            onComplete:()=>{
+
+                home.style.display="none";
+
+                welcomeScreen.style.display="flex";
+
+                gsap.to(
+
+                    welcomeScreen,
+
+                    {
+
+                        opacity:1,
+
+                        duration:1
+
+                    }
+
+                );
+
+            }
+
+        }
+
+    );
+
+}
+
+// ==========================
+// Begin Journey
+// ==========================
+
+beginJourney.addEventListener(
+
+    "click",
+
+    ()=>{
+
+        gsap.to(
+
+            welcomeScreen,
+
+            {
+
+                opacity:0,
+
+                duration:1,
+
+                onComplete:()=>{
+
+                    welcomeScreen.style.display="none";
+
+                    alert(
+
+                        "🎉 Memory Gallery (Version 3.1) Coming Next ❤️"
+
+                    );
+
+                }
+
+            }
+
+        );
+
+    }
+
+);
+
+// ==========================
+// Future Pages
+// ==========================
+
+function showPage(pageId){
+
+    document
+
+    .querySelectorAll(".page")
+
+    .forEach(page=>{
+
+        page.style.display="none";
+
+    });
+
+    const page=
+
+    document.getElementById(pageId);
+
+    if(page){
+
+        page.style.display="block";
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+    }
+
+}
+
+// ==========================
+// Helpers
+// ==========================
+
+function fadeIn(element){
+
+    gsap.fromTo(
+
+        element,
+
+        {
+
+            opacity:0,
+
+            y:40
+
+        },
+
+        {
+
+            opacity:1,
+
+            y:0,
+
+            duration:1
+
+        }
+
+    );
+
+}
+
+function fadeOut(element,callback){
+
+    gsap.to(
+
+        element,
+
+        {
+
+            opacity:0,
+
+            duration:0.8,
+
+            onComplete:callback
+
+        }
+
+    );
+
+}
+
+// ==========================
+// End
+// ==========================
+
+console.log(
+
+    projectData.website.title +
+
+    " Version " +
+
+    projectData.website.version +
+
+    " Loaded Successfully ❤️"
+
+);
+
+// =====================================
+// End of script.js V3.0
+// =====================================
