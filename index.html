@@ -5,33 +5,39 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Project Baccha ❤️</title>
 
     <!-- Google Fonts -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
     <!-- GSAP -->
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 
-    <!-- CSS -->
+    <!-- Main CSS -->
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="style.css">
 
 </head>
 
 <body>
 
-    <!-- ==========================
+    <!-- =====================================
          Animated Background
-    =========================== -->
+    ====================================== -->
 
     <div id="background"></div>
 
@@ -39,19 +45,23 @@
 
     <div id="petals"></div>
 
-    <!-- ==========================
+    <!-- =====================================
          Loading Screen
-    =========================== -->
+    ====================================== -->
 
     <section id="loadingScreen">
 
         <div class="loadingCard">
 
-            <h1>Project Baccha ❤️</h1>
+            <h1 id="loadingTitle">
+
+                Project Baccha ❤️
+
+            </h1>
 
             <p id="loadingText">
 
-                💌 Preparing something beautiful...
+                Preparing something magical...
 
             </p>
 
@@ -61,194 +71,287 @@
 
             </div>
 
+            <p class="loadingPercent">
+
+                <span id="loadingPercent">
+
+                    0%
+
+                </span>
+
+            </p>
+
+        </div>
+
+    </section>
+    
+    <!-- ==========================================
+         Memory Gallery
+    =========================================== -->
+
+    <section id="gallerySection">
+
+        <div class="sectionTitle">
+
+            <h2>
+                Our Beautiful Memories 📸
+            </h2>
+
+            <p>
+                Every picture tells a story.
+            </p>
+
+        </div>
+
+        <div class="galleryGrid">
+
+            <div class="memoryCard">
+
+                <img src="assets/images/photo1.jpg" alt="Memory 1">
+
+                <div class="memoryCaption">
+                    Our First Memory ❤️
+                </div>
+
+            </div>
+
+            <div class="memoryCard">
+
+                <img src="assets/images/photo2.jpg" alt="Memory 2">
+
+                <div class="memoryCaption">
+                    My Favourite Smile 🌸
+                </div>
+
+            </div>
+
+            <div class="memoryCard">
+
+                <img src="assets/images/photo3.jpg" alt="Memory 3">
+
+                <div class="memoryCaption">
+                    A Beautiful Day ✨
+                </div>
+
+            </div>
+
+            <div class="memoryCard">
+
+                <img src="assets/images/photo4.jpg" alt="Memory 4">
+
+                <div class="memoryCaption">
+                    Forever Together ❤️
+                </div>
+
+            </div>
+
         </div>
 
     </section>
 
-    <!-- ==========================
-         Home Screen
-    =========================== -->
+    <!-- ==========================================
+         Timeline Section
+    =========================================== -->
 
-    <section id="home">
+    <section id="timelineSection">
 
-        <div class="hero">
+        <div class="sectionTitle">
 
-            <h1>
+            <h2>
+                Our Journey Together 🗓️
+            </h2>
 
-                Happy Birthday,
-                <br>
-                My Baccha ❤️
-
-            </h1>
-
-            <p class="subtitle">
-
-                Every memory...
-                Every smile...
-                Every surprise...
-
-                <br><br>
-
-                Was made only for you.
-
+            <p>
+                Every moment became a memory.
             </p>
 
-            <!-- ==========================
-                 Premium Envelope
-            =========================== -->
+        </div>
 
-            <div class="envelope" id="envelope">
+        <div class="timeline">
 
-                <div class="envelope-back"></div>
+            <div class="timelineItem">
 
-                <div class="letter" id="letter">
+                <div class="timelineDate">
 
-                    <div class="paper">
-
-                        <h2>
-
-                            My Dearest Baccha ❤️
-
-                        </h2>
-
-                        <p>
-
-                            Before you begin this journey...
-
-                            <br><br>
-
-                            I made every little part of this website
-                            with love, patience, and countless thoughts
-                            of you.
-
-                            <br><br>
-
-                            I hope it makes you smile,
-                            laugh,
-                            and remember
-                            how truly special you are.
-
-                            <br><br>
-
-                            Open the letter
-                            and let our journey begin.
-
-                            ❤️
-
-                        </p>
-
-                    </div>
+                    Day One
 
                 </div>
 
-                <div class="flap" id="flap"></div>
+                <div class="timelineContent">
 
-                <div class="front"></div>
-
-                <div class="seal" id="seal">
-
-                    ❤
+                    This was where everything started.
 
                 </div>
 
             </div>
 
-            <button id="openLetter">
+            <div class="timelineItem">
 
-                Open With Love 💌
+                <div class="timelineDate">
 
-            </button>
+                    First Smile
+
+                </div>
+
+                <div class="timelineContent">
+
+                    A smile I'll never forget.
+
+                </div>
+
+            </div>
+
+            <div class="timelineItem">
+
+                <div class="timelineDate">
+
+                    Today
+
+                </div>
+
+                <div class="timelineContent">
+
+                    Your Birthday ❤️
+
+                </div>
+
+            </div>
 
         </div>
 
-        <button id="musicToggle">
+    </section>
+        <!-- ==========================================
+         Memory Gallery
+    =========================================== -->
 
-            🎵
+    <section id="gallerySection">
 
-        </button>
+        <div class="sectionTitle">
 
-            </section>
+            <h2>
+                Our Beautiful Memories 📸
+            </h2>
 
-    <!-- ==========================
-         Welcome Screen
-    =========================== -->
-
-    <section id="welcomeScreen">
-
-        <div class="welcomeCard">
-
-            <h1 class="welcomeTitle">
-
-                Welcome,
-                <br>
-                My Beautiful Baccha ❤️
-
-            </h1>
-
-            <p class="welcomeText">
-
-                If you're reading this...
-
-                <br><br>
-
-                Congratulations!
-
-                <br><br>
-
-                You've just opened the first page of a little world
-                that I created especially for you.
-
-                <br><br>
-
-                Every animation,
-                every message,
-                every surprise
-                has been placed here with love.
-
-                <br><br>
-
-                So don't rush...
-
-                <br>
-
-                Enjoy every little moment.
-
-                ❤️
-
+            <p>
+                Every picture tells a story.
             </p>
 
-            <button id="beginJourney">
+        </div>
 
-                🌸 Begin Our Journey ✨
+        <div class="galleryGrid">
 
-            </button>
+            <div class="memoryCard">
+
+                <img src="assets/images/photo1.jpg" alt="Memory 1">
+
+                <div class="memoryCaption">
+                    Our First Memory ❤️
+                </div>
+
+            </div>
+
+            <div class="memoryCard">
+
+                <img src="assets/images/photo2.jpg" alt="Memory 2">
+
+                <div class="memoryCaption">
+                    My Favourite Smile 🌸
+                </div>
+
+            </div>
+
+            <div class="memoryCard">
+
+                <img src="assets/images/photo3.jpg" alt="Memory 3">
+
+                <div class="memoryCaption">
+                    A Beautiful Day ✨
+                </div>
+
+            </div>
+
+            <div class="memoryCard">
+
+                <img src="assets/images/photo4.jpg" alt="Memory 4">
+
+                <div class="memoryCaption">
+                    Forever Together ❤️
+                </div>
+
+            </div>
 
         </div>
 
     </section>
 
-    <!-- ==========================
-         Background Music
-    =========================== -->
+    <!-- ==========================================
+         Timeline Section
+    =========================================== -->
 
-    <audio id="bgMusic" loop preload="auto">
+    <section id="timelineSection">
 
-        <source src="assets/music/song.mp3" type="audio/mpeg">
+        <div class="sectionTitle">
 
-        Your browser does not support the audio element.
+            <h2>
+                Our Journey Together 🗓️
+            </h2>
 
-    </audio>
+            <p>
+                Every moment became a memory.
+            </p>
 
-    <!-- ==========================
-         JavaScript Files
-    =========================== -->
+        </div>
 
-    <script src="data.js"></script>
+        <div class="timeline">
 
-    <script src="animations.js"></script>
+            <div class="timelineItem">
 
-    <script src="script.js"></script>
+                <div class="timelineDate">
 
-</body>
+                    Day One
 
-</html>
+                </div>
+
+                <div class="timelineContent">
+
+                    This was where everything started.
+
+                </div>
+
+            </div>
+
+            <div class="timelineItem">
+
+                <div class="timelineDate">
+
+                    First Smile
+
+                </div>
+
+                <div class="timelineContent">
+
+                    A smile I'll never forget.
+
+                </div>
+
+            </div>
+
+            <div class="timelineItem">
+
+                <div class="timelineDate">
+
+                    Today
+
+                </div>
+
+                <div class="timelineContent">
+
+                    Your Birthday ❤️
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
